@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BannerVideo from "../assets/Banner3.webm";
 import {
   Activity,
@@ -58,7 +59,11 @@ export default function Login() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [remember, setRemember] = useState(false);
+  const navigate = useNavigate();
 
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
   function switchMode(next) {
     setMode(next);
     setMessage("");
@@ -261,7 +266,17 @@ export default function Login() {
               </div>
             )}
 
-            <button className="submit-button" type="submit">
+            <button
+              className="submit-button"
+              type="button"
+              onClick={() => {
+                if (mode === "login") {
+                  navigate("/dashboard");
+                } else {
+                  handleSubmit();
+                }
+              }}
+              >
               {mode === "login"
                 ? "Login"
                 : mode === "signup"

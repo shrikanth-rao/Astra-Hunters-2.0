@@ -1,58 +1,71 @@
 
 import { NavLink, Outlet } from "react-router-dom";
 import {
-  Activity,
+  AudioLines,
   LayoutDashboard,
-  FileVideo,
-  Target,
   Mic,
+  ChartNoAxesCombined,
   History,
+  Sparkles,
 } from "lucide-react";
-import ChatbotWidget from "./ChatbotWidget";
 
-const links = [
-  { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/upload", label: "Analyze Speech", icon: FileVideo },
-  { to: "/detailed-final", label: "Final Review", icon: Target },
-  { to: "/practice", label: "Practice", icon: Mic },
-  { to: "/history", label: "Progress", icon: History },
+import ChatbotWidget from "./ChatbotWidget";
+import "./AppLayout.css";
+
+const navItems = [
+  { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  { label: "Analyze", path: "/upload", icon: AudioLines },
+  { label: "Practice", path: "/practice", icon: Mic },
+  { label: "Progress", path: "/detailed-final", icon: ChartNoAxesCombined },
+  { label: "History", path: "/history", icon: History },
 ];
 
 export default function AppLayout() {
   return (
     <div className="app-shell">
-      <header className="top-navigation">
-        <NavLink to="/dashboard" className="app-logo">
-          <span className="app-logo-icon">
-            <Activity size={22} />
+      <header className="app-navbar">
+        <NavLink to="/dashboard" className="app-brand">
+          <span className="app-brand-icon">
+            <AudioLines size={29} />
           </span>
-          <span>SpeakKaro<span className="logo-accent">.AI</span></span>
+
+          <span>
+            <span className="app-brand-name">
+              SpeakKaro<span>.AI</span>
+            </span>
+            <span className="app-brand-tagline">
+              Speak. Analyse. Grow.
+            </span>
+          </span>
         </NavLink>
 
-        <nav className="top-navigation-links">
-          {links.map(({ to, label, icon: Icon }) => (
+        <nav className="app-nav-links">
+          {navItems.map(({ label, path, icon: Icon }) => (
             <NavLink
-              key={to}
-              to={to}
+              key={label}
+              to={path}
               className={({ isActive }) =>
-                `top-nav-link ${isActive ? "selected" : ""}`
+                `app-nav-link ${isActive ? "active" : ""}`
               }
             >
-              <Icon size={16} />
+              <Icon size={17} strokeWidth={1.8} />
               <span>{label}</span>
             </NavLink>
           ))}
         </nav>
 
-        <div className="top-nav-status">
-          <span className="nav-status-dot" />
-          AI Coach
+        <div className="app-navbar-right">
+          <span className="app-status-dot" />
+          <span className="app-status-text">AI Coach</span>
+          <span className="app-profile-icon">
+            <Sparkles size={18} />
+          </span>
         </div>
       </header>
 
-      <div className="app-page-content">
+      <main className="app-main">
         <Outlet />
-      </div>
+      </main>
 
       <ChatbotWidget />
     </div>
