@@ -1,6 +1,7 @@
 
 import cv2
 import json
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -10,6 +11,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 # Input and output paths
 VIDEO_PATH = PROJECT_ROOT / "data" / "raw" / "presentation.mp4"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
+OUTPUT_VIDEO_PATH = OUTPUT_DIR / "presentation.mp4"
 
 AUDIO_PATH = OUTPUT_DIR / "presentation.wav"
 METADATA_PATH = OUTPUT_DIR / "video_metadata.json"
@@ -119,6 +121,8 @@ def main():
         VIDEO_PATH,
         AUDIO_PATH
     )
+
+    shutil.copy2(VIDEO_PATH, OUTPUT_VIDEO_PATH)
 
     print("\nSTEP 1 COMPLETED SUCCESSFULLY")
     print(f"Metadata: {METADATA_PATH}")
