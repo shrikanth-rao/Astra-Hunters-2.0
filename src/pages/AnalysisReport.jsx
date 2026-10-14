@@ -7,3 +7,17 @@ export default function AnalysisReport() {
     </div>
   );
 }
+
+
+
+// const { currentUser, addSpeechResult } = useData();
+
+// addSpeechResult(currentUser.gmail, {
+//   title: "My New Presentation",
+//   date: new Date().toISOString().slice(0, 10),
+//   score: 88,
+//   drawbacks: [
+//     "Too many filler words",
+//     "Limited eye contact",
+//   ],
+// });

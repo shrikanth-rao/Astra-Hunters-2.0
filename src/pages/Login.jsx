@@ -15,7 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import "../index.css";
-
+import { useData } from "../context/DataContext";
 function PresenterScene() {
   return (
     <div className="scene-container video-scene">
@@ -60,10 +60,43 @@ export default function Login() {
   const [message, setMessage] = useState("");
   const [remember, setRemember] = useState(false);
   const navigate = useNavigate();
-
+  const { users, setUsers, setCurrentUser } = useData();
   const handleLogin = () => {
-    navigate("/dashboard");
+    const user = users.find(
+      (u) => u.gmail === email && u.password === password
+    );
+
+    if (user) {
+      setCurrentUser(user);
+      navigate("/dashboard");
+    } else {
+      setMessage("Invalid email or password");
+    }
   };
+  const handleSignup = () => {
+  if (!name || !email || !password) {
+    setMessage("Please fill in all fields");
+    return;
+  }
+
+  const existingUser = users.find((u) => u.gmail === email);
+
+  if (existingUser) {
+    setMessage("Email already registered");
+    return;
+  }
+
+  const newUser = {
+    name: name,
+    gmail: email,
+    password: password,
+  };
+
+  setUsers((prevUsers) => [...prevUsers, newUser]);
+  setCurrentUser(newUser);
+  navigate("/dashboard");
+};
+
   function switchMode(next) {
     setMode(next);
     setMessage("");
@@ -266,17 +299,20 @@ export default function Login() {
               </div>
             )}
 
+  
             <button
               className="submit-button"
               type="button"
               onClick={() => {
                 if (mode === "login") {
-                  navigate("/dashboard");
+                  handleLogin();
+                } else if (mode === "signup") {
+                  handleSignup();
                 } else {
                   handleSubmit();
                 }
               }}
-              >
+            >
               {mode === "login"
                 ? "Login"
                 : mode === "signup"

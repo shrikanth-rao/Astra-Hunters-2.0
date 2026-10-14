@@ -15,9 +15,9 @@ import "./AppLayout.css";
 const navItems = [
   { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
   { label: "Analyze", path: "/upload", icon: AudioLines },
-  { label: "Practice", path: "/practice", icon: Mic },
+  { label: "Quick Practice", path: "/practice", icon: Mic },
   { label: "Progress", path: "/detailed-final", icon: ChartNoAxesCombined },
-  { label: "History", path: "/history", icon: History },
+  { label: "GenerateScript", path: "/GenerateScript", icon: Sparkles },
 ];
 
 export default function AppLayout() {
