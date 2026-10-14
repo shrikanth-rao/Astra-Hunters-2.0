@@ -9,7 +9,7 @@ from sixdrepnet import SixDRepNet
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-OUTPUT_DIR = PROJECT_ROOT / "output" / "head_pose_reports"
+OUTPUT_DIR = PROJECT_ROOT / "output" / "video_out" / "head_pose_reports"
 
 SAMPLE_FPS = 2
 MIN_FACE_SIZE = (60, 60)

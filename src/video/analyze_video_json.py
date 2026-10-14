@@ -18,7 +18,7 @@ from transformers import pipeline
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODEL_DIR = PROJECT_ROOT / "models"
-OUTPUT_DIR = PROJECT_ROOT / "output"
+OUTPUT_DIR = PROJECT_ROOT / "output"/"video_out"
 
 FACE_MODEL = MODEL_DIR / "face_landmarker.task"
 POSE_MODEL = MODEL_DIR / "pose_landmarker_lite.task"

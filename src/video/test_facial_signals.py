@@ -5,7 +5,7 @@ import os
 import statistics
 
 # Find the most recently generated visual-analysis JSON.
-files = glob.glob("output/*visual_analysis.json")
+files = glob.glob("output/video_out/*visual_analysis.json")
 
 if not files:
     raise FileNotFoundError(

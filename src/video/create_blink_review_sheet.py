@@ -12,7 +12,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 
-REPORT_DIR = ROOT / "output" / "facial_signal_reports"
+REPORT_DIR = ROOT / "output" / "video_out" / "facial_signal_reports"
 CSV_PATH = REPORT_DIR / "candidate_blinks.csv"
 OUTPUT_PATH = REPORT_DIR / "blink_review_contact_sheet.jpg"
 

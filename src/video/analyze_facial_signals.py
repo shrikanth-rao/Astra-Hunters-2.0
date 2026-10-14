@@ -8,11 +8,11 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 
 # Find the latest visual-analysis JSON.
-files = glob.glob("output/*visual_analysis.json")
+files = glob.glob("output/video_out/*visual_analysis.json")
 
 if not files:
     raise FileNotFoundError(
-        "No visual-analysis JSON found in output/"
+        "No visual-analysis JSON found in output/video_out/"
     )
 
 json_path = max(files, key=os.path.getmtime)
@@ -36,7 +36,7 @@ for frame in data.get("frames", []):
         "mouthSmileRight": shapes.get("mouthSmileRight"),
     })
 
-output_dir = Path("output/facial_signal_reports")
+output_dir = Path("output/video_out/facial_signal_reports")
 output_dir.mkdir(parents=True, exist_ok=True)
 
 csv_path = output_dir / "facial_signals.csv"

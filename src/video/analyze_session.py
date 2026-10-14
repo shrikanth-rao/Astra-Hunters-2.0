@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 # --------------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-OUTPUT_DIR = PROJECT_ROOT / "output"
+OUTPUT_DIR = PROJECT_ROOT / "output"/"video_out"
 
 REQUIRED_COLUMNS = [
     "timestamp_seconds",

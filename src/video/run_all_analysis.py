@@ -11,7 +11,7 @@ from pathlib import Path
 
 VIDEO_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = VIDEO_DIR.parent.parent
-OUTPUT_DIR = PROJECT_ROOT / "output"
+OUTPUT_DIR = PROJECT_ROOT / "output"/"video_out"
 
 
 # ============================================================

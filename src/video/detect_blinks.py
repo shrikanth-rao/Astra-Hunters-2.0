@@ -12,7 +12,7 @@ MIN_BLINK_DURATION = 0.03
 MAX_BLINK_DURATION = 0.60
 MERGE_GAP = 0.10
 
-files = glob.glob("output/*visual_analysis.json")
+files = glob.glob("output/video_out/*visual_analysis.json")
 
 if not files:
     raise FileNotFoundError("No visual-analysis JSON found.")
