@@ -1,0 +1,373 @@
+======================================================================
+                 POWERPOINT ANALYSIS REPORT
+======================================================================
+File name: communication.pptx
+Total slides: 32
+Total extracted words: 1188
+Average words per slide: 37.12
+Average basic structure score: 97.1/100
+
+SCORING EXPLANATION
+----------------------------------------------------------------------
+Rule-based heuristic based on detectable titles, text density, explicitly sized small fonts, sentence length, and potentially empty slides. This is not an AI assessment of visual design, factual accuracy, or persuasiveness.
+
+OVERALL FINDINGS
+----------------------------------------------------------------------
+- 1 slide(s) contain more than 100 words.
+- 4 slide(s) have fewer than 5 words.
+
+SLIDE-BY-SLIDE ANALYSIS
+======================================================================
+
+SLIDE 1: Communication
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- Very little extractable text.
+
+RECOMMENDATIONS:
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+
+SLIDE 2: Communication
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+- Duplicate title found on another slide.
+
+RECOMMENDATIONS:
+- Check image quality, relevance, alignment, and attribution.
+- Check whether the repeated title is intentional.
+
+SLIDE 3: Process of Communication
+----------------------------------------------------------------------
+Basic structure score: 85/100
+
+FINDINGS:
+- Relatively dense slide: 88 words.
+- No explicit font sizes could be extracted.
+- Long sentences may reduce readability.
+
+RECOMMENDATIONS:
+- Shorten paragraphs and use concise bullet points.
+- Break long sentences into shorter statements.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 4: Importance of Communication
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 5: Features of successful Professional Communication
+----------------------------------------------------------------------
+Basic structure score: 82/100
+
+FINDINGS:
+- Text-heavy slide: 107 words.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Reduce text and highlight the key message.
+
+SLIDE 6: Types of Communication
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No issues detected by the basic automated checks.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 7: Verbal communication- 2 Types
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No issues detected by the basic automated checks.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 8: Advantages of Oral Communication
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No issues detected by the basic automated checks.
+
+RECOMMENDATIONS:
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 9: VERBAL COMMUNICATION:
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- Long sentences may reduce readability.
+
+RECOMMENDATIONS:
+- Break long sentences into shorter statements.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 10: Written Communication
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No issues detected by the basic automated checks.
+
+RECOMMENDATIONS:
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 11: Non Verbal Communication
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+
+SLIDE 12: Meharbian’s Communication Model
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Check chart titles, labels, units, and readability.
+
+SLIDE 13: Non-Verbal  communication
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No issues detected by the basic automated checks.
+
+RECOMMENDATIONS:
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 14: Non Verbal communication
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- Long sentences may reduce readability.
+- Duplicate title found on another slide.
+
+RECOMMENDATIONS:
+- Break long sentences into shorter statements.
+- Check whether the repeated title is intentional.
+
+SLIDE 15: Oculesics:
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+
+SLIDE 16: FORMS OF COMMUNICATION
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 17: Formal Communication
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+- Long sentences may reduce readability.
+
+RECOMMENDATIONS:
+- Break long sentences into shorter statements.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 18: Informal Communication
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+- Long sentences may reduce readability.
+
+RECOMMENDATIONS:
+- Break long sentences into shorter statements.
+
+SLIDE 19: Barriers to Effective Communication
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 20: Barriers to Effective Communication- Physical Barriers:
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No issues detected by the basic automated checks.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 21: Barriers to Effective Communication -Semantic (language)
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 22: Barriers to Effective Communication – Psychological Barriers:
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+- Long sentences may reduce readability.
+
+RECOMMENDATIONS:
+- Break long sentences into shorter statements.
+
+SLIDE 23: Barriers to Effective Communication – Cultural Barriers:
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 24: Organizational barriers are caused due to the structure, rules and regulations present in the organization. Sometimes it is caused due to 
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 25: Barriers to Effective Communication – Perceptual Barriers
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 26: Barriers to Effective Communication – Gender Barriers:
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 27: Barriers to Effective Communication – Interpersonal Barriers:
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 28: Steps to overcome the different types of Barriers:
+----------------------------------------------------------------------
+Basic structure score: 90/100
+
+FINDINGS:
+- Relatively dense slide: 83 words.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Shorten paragraphs and use concise bullet points.
+
+SLIDE 29: INTERPERSONAL  SKILLS
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 30: Importance of Interpersonal skills
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+- Long sentences may reduce readability.
+
+RECOMMENDATIONS:
+- Break long sentences into shorter statements.
+
+SLIDE 31: Intrapersonal Skills
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 32: THANK YOU
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+
+REPEATED FOUR-WORD PHRASES
+======================================================================
+- 'barriers to effective communication': 9 occurrences
+- 'between the sender and': 2 occurrences
+- 'the sender and the': 2 occurrences
+- 'sender and the receiver': 2 occurrences
+- 'are also known as': 2 occurrences
+- 'barriers are caused due': 2 occurrences
+- 'are caused due to': 2 occurrences
+
+======================================================================
+END OF REPORT
+======================================================================

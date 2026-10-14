@@ -1,0 +1,3 @@
+Audio File: presentation.wav
+Detected Accent (text_lab): us
+Confidence (score): 63.47%

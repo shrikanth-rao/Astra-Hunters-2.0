@@ -41,7 +41,6 @@ FILLERS = [
     "actually",
     "basically",
     "literally",
-    "like",
 ]
 
 # Longer phrases are checked first.

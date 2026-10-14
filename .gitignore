@@ -10,3 +10,4 @@ data/processed/*
 !data/processed/.gitkeep
 
 .env
+wav2vec2_checkpoints/
