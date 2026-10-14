@@ -34,38 +34,6 @@ export default function Dashboard() {
 
   return (
     <div className="voxa-app">
-      <aside className="voxa-sidebar">
-        <div className="voxa-brand">
-          <span className="voxa-brand-mark"><Activity size={23} /></span>
-          <span>VOXA<span className="brand-dot">.</span></span>
-        </div>
-
-        <p className="sidebar-caption">WORKSPACE</p>
-
-        <nav className="voxa-nav">
-          {navItems.map(({ label, icon: Icon, path }) => (
-            <button
-              key={path}
-              className={`nav-link ${
-                path === "/dashboard" ? "active" : ""
-              }`}
-              onClick={() => navigate(path)}
-            >
-              <Icon size={18} />
-              <span>{label}</span>
-            </button>
-          ))}
-        </nav>
-
-        <div className="sidebar-bottom">
-          <div className="sidebar-avatar">V</div>
-          <div>
-            <strong>VOXA Workspace</strong>
-            <small>Speech coach</small>
-          </div>
-        </div>
-      </aside>
-
       <main className="voxa-main">
         <header className="voxa-topbar">
           <div>

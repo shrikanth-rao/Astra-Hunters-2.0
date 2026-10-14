@@ -705,3 +705,133 @@ input:focus-visible {
 }
 
 
+
+.app-shell {
+  min-height: 100vh;
+  background: #08111f;
+  color: #f2f6fc;
+}
+
+.top-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  min-height: 76px;
+  padding: 0 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: rgba(8, 17, 31, 0.9);
+  border-bottom: 1px solid #22354b;
+  backdrop-filter: blur(18px);
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f2f6fc;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  white-space: nowrap;
+}
+
+.app-logo-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: #8bcaff;
+  background: #142d48;
+  border: 1px solid #315779;
+  border-radius: 11px;
+}
+
+.logo-accent {
+  color: #7dc4ff;
+}
+
+.top-navigation-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.top-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 12px;
+  color: #9dafc4;
+  text-decoration: none;
+  font-size: 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: color 180ms ease, background 180ms ease,
+    border-color 180ms ease;
+}
+
+.top-nav-link:hover,
+.top-nav-link.selected {
+  color: #e6f4ff;
+  background: #132941;
+  border-color: #294663;
+}
+
+.top-nav-link.selected svg {
+  color: #80c6ff;
+}
+
+.top-nav-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b6c6d8;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.nav-status-dot {
+  width: 7px;
+  height: 7px;
+  background: #65d9ac;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #65d9ac66;
+}
+
+.app-page-content {
+  min-height: calc(100vh - 76px);
+}
+
+@media (max-width: 950px) {
+  .top-navigation {
+    flex-wrap: wrap;
+    padding: 14px 20px;
+    gap: 12px;
+  }
+
+  .top-navigation-links {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .top-nav-link {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .top-nav-status {
+    display: none;
+  }
+
+  .top-nav-link {
+    padding: 10px;
+  }
+}
