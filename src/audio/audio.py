@@ -1,4 +1,3 @@
-
 import re
 import json
 from pathlib import Path
@@ -14,12 +13,15 @@ import pandas as pd
 # 1. CONFIGURATION
 # ============================================================
 
-AUDIO_FILE = "presentation.wav"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+# Point to the processed audio file in the data folder
+AUDIO_FILE = PROJECT_ROOT / "data" / "processed" / "presentation.wav"
 MODEL_NAME = "base"
 PAUSE_THRESHOLD = 0.30
 
-OUTPUT_DIR = Path("analysis_results")
-OUTPUT_DIR.mkdir(exist_ok=True)
+# Point to the standard output folder for the project
+OUTPUT_DIR = PROJECT_ROOT / "output"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 FILLERS = [
     "you know",
@@ -128,7 +130,8 @@ audio_path = Path(AUDIO_FILE)
 
 if not audio_path.exists():
     raise FileNotFoundError(
-        f"Audio file not found: {audio_path.resolve()}"
+        f"Audio file not found: {audio_path.resolve()}\n"
+        f"Please ensure 'presentation.wav' exists in the 'data/processed/' folder."
     )
 
 print("Loading audio...")
