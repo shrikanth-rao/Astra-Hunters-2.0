@@ -20,7 +20,7 @@ MODEL_NAME = "base"
 PAUSE_THRESHOLD = 0.30
 
 # Point to the standard output folder for the project
-OUTPUT_DIR = PROJECT_ROOT / "output"
+OUTPUT_DIR = PROJECT_ROOT / "output"/"audio_out"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 FILLERS = [

@@ -8,8 +8,18 @@ from pathlib import Path
 # Project root: presentation-ai/
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-# Input and output paths
-VIDEO_PATH = PROJECT_ROOT / "data" / "raw" / "presentation.mp4"
+# 1. Define the raw folder
+RAW_DIR = Path("data") / "raw"
+
+# 2. Search for any .mp4 files in the folder
+available_videos = list(RAW_DIR.glob("*.mp4"))
+
+if not available_videos:
+    raise FileNotFoundError(f"No .mp4 files found in {RAW_DIR.resolve()}. Please drop a video in the folder.")
+
+# 3. Automatically grab the first video it finds!
+VIDEO_PATH = available_videos[0]
+
 OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
 OUTPUT_VIDEO_PATH = OUTPUT_DIR / "presentation.mp4"
 
