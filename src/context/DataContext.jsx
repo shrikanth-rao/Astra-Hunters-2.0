@@ -458,7 +458,7 @@ const initialProgress = {
 export function DataProvider({ children }) {
   const [users, setUsers] = useState(initialUsers);
   const [currentUser, setCurrentUser] = useState(null);
-
+  const [pendingAnalysis, setPendingAnalysis] = useState(null);
   // Store other shared application data here
   const [analysisResults, setAnalysisResults] = useState([]);
   const [history, setHistory] = useState([]);
@@ -482,18 +482,22 @@ export function DataProvider({ children }) {
   };
 
   const value = {
-    users,
-    setUsers,
-    currentUser,
-    setCurrentUser,
-    analysisResults,
-    setAnalysisResults,
-    history,
-    setHistory,
-    progressByUser,
-    getUserProgress,
-    addSpeechResult,
-  };
+  users,
+  setUsers,
+  currentUser,
+  setCurrentUser,
+
+  pendingAnalysis,
+  setPendingAnalysis,
+
+  analysisResults,
+  setAnalysisResults,
+  history,
+  setHistory,
+  progressByUser,
+  getUserProgress,
+  addSpeechResult,
+};
 
   return (
     <DataContext.Provider value={value}>
