@@ -107,7 +107,7 @@ if active and start_time is not None and last_time is not None:
             "note": "Review final event against original video"
         })
 
-output_dir = Path("output/facial_signal_reports")
+output_dir = Path("output/video_out/facial_signal_reports")
 output_dir.mkdir(parents=True, exist_ok=True)
 
 csv_path = output_dir / "candidate_blinks.csv"
