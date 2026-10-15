@@ -60,6 +60,7 @@ def find_video(video_argument=None):
 # 3. LOAD BLINK CANDIDATES
 # --------------------------------------------------
 
+
 def load_events():
     if not CSV_PATH.is_file():
         raise FileNotFoundError(
@@ -70,14 +71,12 @@ def load_events():
     with CSV_PATH.open(
         "r",
         newline="",
-        encoding="utf-8",
+        encoding="utf-8-sig",
     ) as file:
         events = list(csv.DictReader(file))
 
     if not events:
-        raise ValueError(
-            "No candidate blink events were found in the CSV."
-        )
+        return []
 
     required = {"start_seconds", "end_seconds"}
 
@@ -87,6 +86,7 @@ def load_events():
         )
 
     return events
+
 
 
 # --------------------------------------------------
@@ -242,6 +242,7 @@ def create_contact_sheet(video_path, events):
 # 5. MAIN
 # --------------------------------------------------
 
+
 def main():
     parser = argparse.ArgumentParser(
         description="Create a visual review sheet for candidate blinks."
@@ -256,8 +257,18 @@ def main():
     args = parser.parse_args()
 
     try:
-        video_path = find_video(args.video)
         events = load_events()
+
+        if not events:
+            print("Candidate blink events: 0")
+            print("No contact sheet was generated.")
+            print(
+                "This step is being skipped because there are "
+                "no candidate events to review."
+            )
+            return
+
+        video_path = find_video(args.video)
         create_contact_sheet(video_path, events)
 
     except (FileNotFoundError, ValueError, OSError) as error:

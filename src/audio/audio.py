@@ -1,27 +1,66 @@
+import os
 import re
 import json
 from pathlib import Path
 from collections import Counter
 
+import imageio_ffmpeg
 import whisper
+import whisper.audio
 import librosa
 import numpy as np
 import pandas as pd
 
 
 # ============================================================
-# 1. CONFIGURATION
+# 1. FFMPEG CONFIGURATION
+# ============================================================
+
+# Obtain the FFmpeg executable installed by imageio-ffmpeg.
+FFMPEG_EXE = imageio_ffmpeg.get_ffmpeg_exe()
+FFMPEG_DIR = os.path.dirname(FFMPEG_EXE)
+
+# Make FFmpeg available to other subprocess calls.
+os.environ["PATH"] = (
+    FFMPEG_DIR + os.pathsep + os.environ.get("PATH", "")
+)
+
+# IMPORTANT:
+# Whisper internally uses whisper.audio.FFMPEG when loading
+# audio for transcription. Point it directly to the executable.
+whisper.audio.FFMPEG = FFMPEG_EXE
+
+if not os.path.isfile(FFMPEG_EXE):
+    raise FileNotFoundError(
+        f"FFmpeg executable not found: {FFMPEG_EXE}"
+    )
+
+print(f"FFmpeg executable: {FFMPEG_EXE}")
+
+
+# ============================================================
+# 2. IMPORTED PROJECT CONFIGURATION
 # ============================================================
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-# Point to the processed audio file in the data folder
-AUDIO_FILE = PROJECT_ROOT / "data" / "processed" / "presentation.wav"
+
+AUDIO_FILE = (
+    PROJECT_ROOT
+    / "data"
+    / "processed"
+    / "presentation.wav"
+)
+
 MODEL_NAME = "base"
 PAUSE_THRESHOLD = 0.30
 
-# Point to the standard output folder for the project
-OUTPUT_DIR = PROJECT_ROOT / "output"/"audio_out"
+OUTPUT_DIR = PROJECT_ROOT / "output" / "audio_out"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+
+# ============================================================
+# 3. FILLER WORD CONFIGURATION
+# ============================================================
 
 FILLERS = [
     "you know",
@@ -43,26 +82,36 @@ FILLERS = [
     "literally",
 ]
 
-# Longer phrases are checked first.
 FILLER_PATTERN = re.compile(
     r"\b(?:"
     + "|".join(
-        re.escape(f) for f in sorted(FILLERS, key=len, reverse=True)
+        re.escape(filler)
+        for filler in sorted(FILLERS, key=len, reverse=True)
     )
     + r")\b",
     re.IGNORECASE,
 )
 
 
+# ============================================================
+# 4. HELPER FUNCTIONS
+# ============================================================
+
 def rounded(value, digits=3):
-    """Round a numeric value, preserving missing values."""
-    if value is None or not np.isfinite(value):
+    """Round a numeric value while preserving missing values."""
+    if value is None:
         return None
-    return round(float(value), digits)
+
+    try:
+        if not np.isfinite(value):
+            return None
+        return round(float(value), digits)
+    except (TypeError, ValueError):
+        return None
 
 
 def count_fillers(text):
-    """Return individual filler counts from recognized text."""
+    """Count recognized filler phrases."""
     return Counter(
         match.group(0).lower()
         for match in FILLER_PATTERN.finditer(text)
@@ -71,8 +120,9 @@ def count_fillers(text):
 
 def get_pitch(audio_clip, sample_rate):
     """
-    Estimate sentence pitch using YIN.
-    Values are fundamental frequency estimates in Hz.
+    Estimate pitch using the YIN algorithm.
+
+    Returns fundamental frequency statistics in Hz.
     """
     empty = {
         "pitch_mean_hz": None,
@@ -102,7 +152,9 @@ def get_pitch(audio_clip, sample_rate):
         )
 
         valid = f0[
-            np.isfinite(f0) & (f0 >= 65) & (f0 <= 500)
+            np.isfinite(f0)
+            & (f0 >= 65)
+            & (f0 <= 500)
         ]
 
         if len(valid) == 0:
@@ -117,12 +169,13 @@ def get_pitch(audio_clip, sample_rate):
             "voiced_pitch_frame_count": int(len(valid)),
         }
 
-    except Exception:
+    except Exception as error:
+        print(f"Warning: pitch estimation failed: {error}")
         return empty
 
 
 # ============================================================
-# 2. VALIDATE AND LOAD AUDIO
+# 5. VALIDATE AND LOAD AUDIO
 # ============================================================
 
 audio_path = Path(AUDIO_FILE)
@@ -130,10 +183,15 @@ audio_path = Path(AUDIO_FILE)
 if not audio_path.exists():
     raise FileNotFoundError(
         f"Audio file not found: {audio_path.resolve()}\n"
-        f"Please ensure 'presentation.wav' exists in the 'data/processed/' folder."
+        "Ensure presentation.wav exists in data/processed/."
     )
 
-print("Loading audio...")
+print("\n" + "=" * 60)
+print("SPEECH ANALYSIS PIPELINE")
+print("=" * 60)
+
+print(f"Audio file: {audio_path}")
+print("Loading audio for pitch and timing analysis...")
 
 audio, sample_rate = librosa.load(
     str(audio_path),
@@ -143,18 +201,26 @@ audio, sample_rate = librosa.load(
 
 duration = len(audio) / sample_rate
 
-print("Loading Whisper model...")
+if duration <= 0:
+    raise ValueError("The input audio is empty.")
+
+print(f"Audio duration: {duration:.2f} seconds")
+print(f"Sample rate: {sample_rate} Hz")
+
+print(f"\nLoading Whisper model: {MODEL_NAME}")
 model = whisper.load_model(MODEL_NAME)
 
 
 # ============================================================
-# 3. TRANSCRIBE AUDIO
+# 6. TRANSCRIBE AUDIO
 # ============================================================
 
-print("Transcribing audio...")
+print("\nTranscribing audio with Whisper...")
 
+# whisper.audio.FFMPEG was configured above.
+# Passing the WAV file here preserves the extracted audio source.
 result = model.transcribe(
-    str(audio_path),
+    audio,
     language="en",
     fp16=False,
     temperature=0,
@@ -168,22 +234,25 @@ result = model.transcribe(
     ),
 )
 
-transcript = result["text"].strip()
+transcript = result.get("text", "").strip()
 
-# Save transcription separately.
 transcript_path = OUTPUT_DIR / "transcription.txt"
 transcript_path.write_text(transcript, encoding="utf-8")
 
 print("Transcription saved.")
+print(f"Transcript: {transcript_path}")
 
 
 # ============================================================
-# 4. EXTRACT WORD TIMESTAMPS
+# 7. EXTRACT WORD TIMESTAMPS
 # ============================================================
 
 words = []
 
 for segment in result.get("segments", []):
+    segment_start = float(segment.get("start", 0.0))
+    segment_end = float(segment.get("end", segment_start))
+
     for item in segment.get("words", []):
         word_text = item.get("word", "").strip()
 
@@ -192,11 +261,12 @@ for segment in result.get("segments", []):
 
         start = max(
             0.0,
-            min(float(item.get("start", segment["start"]),), duration),
+            min(float(item.get("start", segment_start)), duration),
         )
+
         end = max(
             start,
-            min(float(item.get("end", segment["end"])), duration),
+            min(float(item.get("end", segment_end)), duration),
         )
 
         words.append({
@@ -205,11 +275,11 @@ for segment in result.get("segments", []):
             "end": end,
         })
 
-words.sort(key=lambda x: (x["start"], x["end"]))
+words.sort(key=lambda item: (item["start"], item["end"]))
 
 
 # ============================================================
-# 5. DETECT PAUSES BETWEEN ALIGNED WORDS
+# 8. DETECT PAUSES BETWEEN WORDS
 # ============================================================
 
 pauses = []
@@ -227,16 +297,18 @@ for previous, current in zip(words, words[1:]):
         })
 
 total_pause_duration = sum(
-    p["pause_duration_seconds"] for p in pauses
+    pause["pause_duration_seconds"]
+    for pause in pauses
 )
 
 speech_active_duration = max(
-    0.0, duration - total_pause_duration
+    0.0,
+    duration - total_pause_duration,
 )
 
 
 # ============================================================
-# 6. OVERALL RECORDING FEATURES
+# 9. OVERALL RECORDING FEATURES
 # ============================================================
 
 total_words = len(words)
@@ -244,7 +316,8 @@ overall_fillers = count_fillers(transcript)
 total_fillers = sum(overall_fillers.values())
 
 overall_wpm = (
-    total_words / duration * 60 if duration > 0 else 0.0
+    total_words / duration * 60
+    if duration > 0 else 0.0
 )
 
 active_wpm = (
@@ -262,16 +335,19 @@ most_used_filler = (
     if overall_fillers else "None"
 )
 
-# JSON string columns preserve detailed event information
-# while keeping the dataset in one CSV file.
-all_pauses_json = json.dumps(pauses, ensure_ascii=False)
+all_pauses_json = json.dumps(
+    pauses,
+    ensure_ascii=False,
+)
+
 filler_counts_json = json.dumps(
-    dict(overall_fillers), ensure_ascii=False
+    dict(overall_fillers),
+    ensure_ascii=False,
 )
 
 
 # ============================================================
-# 7. SPLIT ALIGNED WORDS INTO SENTENCES
+# 10. SPLIT ALIGNED WORDS INTO SENTENCES
 # ============================================================
 
 sentences = []
@@ -280,14 +356,14 @@ current_words = []
 for word in words:
     current_words.append(word)
 
-    if re.search(r'[.!?]["\')\]]*$', word["word"]):
+    if re.search(r"""[.!?]["')\]]*$""", word["word"]):
         sentences.append(current_words)
         current_words = []
 
 if current_words:
     sentences.append(current_words)
 
-# Fallback for empty word-level alignment.
+# Fallback if no word-level alignment was returned.
 if not sentences and result.get("segments"):
     for segment in result["segments"]:
         segment_text = segment.get("text", "").strip()
@@ -301,7 +377,7 @@ if not sentences and result.get("segments"):
 
 
 # ============================================================
-# 8. BUILD ONE ROW PER SENTENCE
+# 11. BUILD SENTENCE-LEVEL DATASET
 # ============================================================
 
 rows = []
@@ -314,7 +390,11 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
 
     sentence_start = sentence_words[0]["start"]
     sentence_end = sentence_words[-1]["end"]
-    sentence_duration = max(0.0, sentence_end - sentence_start)
+
+    sentence_duration = max(
+        0.0,
+        sentence_end - sentence_start,
+    )
 
     sentence_word_count = sum(
         len(re.findall(r"\b[\w'-]+\b", item["word"]))
@@ -326,15 +406,16 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
         if sentence_duration > 0 else 0.0
     )
 
-    # Filler features for this sentence.
+    # Sentence-level filler statistics.
     sentence_fillers = count_fillers(sentence_text)
     sentence_filler_total = sum(sentence_fillers.values())
 
-    # Pauses with both neighboring words inside this sentence.
+    # Pauses occurring within this sentence.
     sentence_pauses = []
 
     for previous, current in zip(
-        sentence_words, sentence_words[1:]
+        sentence_words,
+        sentence_words[1:],
     ):
         gap = current["start"] - previous["end"]
 
@@ -348,17 +429,21 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
             })
 
     sentence_pause_durations = [
-        p["duration_seconds"] for p in sentence_pauses
+        pause["duration_seconds"]
+        for pause in sentence_pauses
     ]
 
     sentence_pause_total = sum(sentence_pause_durations)
 
-    # Audio pitch features for this sentence.
+    # Estimate pitch for the sentence audio segment.
     start_sample = max(
-        0, int(sentence_start * sample_rate)
+        0,
+        int(sentence_start * sample_rate),
     )
+
     end_sample = min(
-        len(audio), int(sentence_end * sample_rate)
+        len(audio),
+        int(sentence_end * sample_rate),
     )
 
     pitch = get_pitch(
@@ -366,15 +451,19 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
         sample_rate,
     )
 
-    # Pauses immediately before and after this sentence.
+    # Locate pauses immediately before and after this sentence.
     preceding_pauses = [
-        p for p in pauses
-        if abs(p["pause_end_seconds"] - sentence_start) <= 0.10
+        pause for pause in pauses
+        if abs(
+            pause["pause_end_seconds"] - sentence_start
+        ) <= 0.10
     ]
 
     following_pauses = [
-        p for p in pauses
-        if abs(p["pause_start_seconds"] - sentence_end) <= 0.10
+        pause for pause in pauses
+        if abs(
+            pause["pause_start_seconds"] - sentence_end
+        ) <= 0.10
     ]
 
     pause_before = (
@@ -392,7 +481,7 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
         "audio_file": audio_path.name,
         "sentence_number": sentence_number,
 
-        # Overall recording features (repeated per sentence)
+        # Overall recording features
         "audio_duration_seconds": rounded(duration),
         "audio_duration_minutes": rounded(duration / 60),
         "recording_total_words": total_words,
@@ -413,7 +502,7 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
         ),
         "pause_threshold_seconds": PAUSE_THRESHOLD,
 
-        # Sentence text and timestamps
+        # Sentence text and timing
         "sentence_text": sentence_text,
         "sentence_start_seconds": rounded(sentence_start),
         "sentence_end_seconds": rounded(sentence_end),
@@ -424,7 +513,8 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
         # Sentence-level fillers
         "sentence_total_fillers": sentence_filler_total,
         "sentence_filler_counts_json": json.dumps(
-            dict(sentence_fillers), ensure_ascii=False
+            dict(sentence_fillers),
+            ensure_ascii=False,
         ),
 
         # Sentence-level pauses
@@ -443,13 +533,14 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
         "pause_before_sentence_seconds": rounded(pause_before),
         "pause_after_sentence_seconds": rounded(pause_after),
         "sentence_pause_events_json": json.dumps(
-            sentence_pauses, ensure_ascii=False
+            sentence_pauses,
+            ensure_ascii=False,
         ),
 
-        # Overall pause event details, retained in every row
+        # Recording-level pause events
         "recording_pause_events_json": all_pauses_json,
 
-        # Sentence pitch
+        # Sentence-level pitch features
         **pitch,
     }
 
@@ -457,7 +548,7 @@ for sentence_number, sentence_words in enumerate(sentences, start=1):
 
 
 # ============================================================
-# 9. SAVE THE CONSOLIDATED ML DATASET
+# 12. SAVE THE CONSOLIDATED ML DATASET
 # ============================================================
 
 csv_path = OUTPUT_DIR / "speech_ml_dataset.csv"
@@ -504,36 +595,39 @@ columns = [
 
 df = pd.DataFrame(rows, columns=columns)
 
-# Keep an empty recording from crashing the export.
-df.to_csv(csv_path, index=False, encoding="utf-8-sig")
+df.to_csv(
+    csv_path,
+    index=False,
+    encoding="utf-8-sig",
+)
 
 
 # ============================================================
-# 10. PRINT SUMMARY
+# 13. PRINT SUMMARY
 # ============================================================
 
 print("\n" + "=" * 60)
-print("           SPEECH ANALYSIS COMPLETED")
+print("SPEECH ANALYSIS COMPLETED")
 print("=" * 60)
 
-print(f"Duration:          {duration:.2f} seconds")
-print(f"Words:             {total_words}")
-print(f"Overall WPM:       {overall_wpm:.2f}")
+print(f"Duration:             {duration:.2f} seconds")
+print(f"Words:                {total_words}")
+print(f"Overall WPM:          {overall_wpm:.2f}")
 print(f"Estimated active WPM: {active_wpm:.2f}")
-print(f"Total fillers:     {total_fillers}")
-print(f"Most-used filler:  {most_used_filler}")
-print(f"Total pauses:      {len(pauses)}")
-print(f"Sentence count:    {len(rows)}")
-print(f"CSV columns:       {len(columns)}")
+print(f"Total fillers:        {total_fillers}")
+print(f"Most-used filler:     {most_used_filler}")
+print(f"Total pauses:         {len(pauses)}")
+print(f"Sentence count:       {len(rows)}")
+print(f"CSV columns:          {len(columns)}")
 
 print("\nFiller breakdown:")
 for filler, count in overall_fillers.most_common():
     print(f"  {filler}: {count}")
 
 print("\nSaved files:")
-print(f"  ML dataset:   {csv_path.resolve()}")
+print(f"  ML dataset:    {csv_path.resolve()}")
 print(f"  Transcription: {transcript_path.resolve()}")
 
-print("\nCSV rows:", len(df))
-print("CSV columns:", len(df.columns))
+print(f"\nCSV rows: {len(df)}")
+print(f"CSV columns: {len(df.columns)}")
 print("=" * 60)

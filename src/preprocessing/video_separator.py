@@ -1,4 +1,4 @@
-
+import imageio_ffmpeg
 import cv2
 import json
 import shutil
@@ -72,7 +72,7 @@ def extract_audio(video_path, audio_path):
     """Extract mono, 16 kHz WAV audio using FFmpeg."""
 
     command = [
-        "ffmpeg",
+        imageio_ffmpeg.get_ffmpeg_exe(),
         "-y",
         "-i", str(video_path),
         "-vn",
