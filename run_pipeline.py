@@ -38,17 +38,21 @@ def main():
             "desc": "Step 2: Audio Feature Extraction (Pitch, Pauses, WPM)"
         },
         {
+            "script": "src/audio/detect_accent.py",
+            "desc": "Step 3: Accent Classification"
+        },
+        {
             "script": "src/video/run_all_analysis.py",
             "args": ["data/raw/presentation.mp4"],
-            "desc": "Step 3: Video Body Language & Posture Analysis"
+            "desc": "Step 4: Video Body Language & Posture Analysis"
         },
         {
             "script": "src/video/extract_video_features.py",
-            "desc": "Step 3b: Aggregate Video Features for ML"
+            "desc": "Step 4b: Aggregate Video Features for ML"
         },
         {
             "script": "src/audio/flatten_audio.py",
-            "desc": "Step 4: Flatten Audio Features for ML"
+            "desc": "Step 5: Flatten Audio Features for ML"
         }
     ]
     
