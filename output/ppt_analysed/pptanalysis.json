@@ -1,216 +1,214 @@
 {
-  "file_name": "communication.pptx",
-  "slide_count": 32,
-  "total_word_count": 1188,
-  "total_character_count": 8434,
-  "average_words_per_slide": 37.12,
-  "total_images": 11,
-  "total_charts": 1,
+  "file_name": "Module 4- Tenses [Recovered].pptx",
+  "slide_count": 9,
+  "total_word_count": 173,
+  "total_character_count": 1086,
+  "average_words_per_slide": 19.22,
+  "total_images": 1,
+  "total_charts": 0,
   "total_tables": 0,
-  "average_basic_structure_score": 97.1,
-  "untitled_slides": 0,
-  "dense_slides": 1,
-  "low_text_slides": 4,
+  "average_basic_structure_score": 97.6,
+  "untitled_slides": 1,
+  "dense_slides": 0,
+  "low_text_slides": 2,
   "slides_below_60": 0,
   "overall_findings": [
-    "1 slide(s) contain more than 100 words.",
-    "4 slide(s) have fewer than 5 words."
+    "1 slide(s) have no detectable title.",
+    "2 slide(s) have fewer than 5 words."
   ],
   "score_explanation": "Rule-based heuristic based on detectable titles, text density, explicitly sized small fonts, sentence length, and potentially empty slides. This is not an AI assessment of visual design, factual accuracy, or persuasiveness.",
   "slides": [
     {
       "slide_number": 1,
-      "title": "Communication",
-      "word_count": 4,
-      "character_count": 24,
+      "title": "Tenses",
+      "word_count": 1,
+      "character_count": 6,
       "sentence_count": 1,
-      "average_words_per_sentence": 4.0,
+      "average_words_per_sentence": 1.0,
       "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 2,
       "other_shape_count": 0,
-      "font_sizes_pt": [
-        32.0
-      ],
-      "minimum_font_size_pt": 32.0,
-      "maximum_font_size_pt": 32.0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
       "basic_structure_score": 95,
       "findings": [
-        "Very little extractable text."
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
       ],
       "suggestions": [
         "Check whether the slide communicates its purpose. A visual-only slide may be intentional."
       ],
-      "extracted_text": "Communication\nModule 1\n1"
+      "extracted_text": "Tenses"
     },
     {
       "slide_number": 2,
-      "title": "Communication",
-      "word_count": 21,
-      "character_count": 154,
-      "sentence_count": 3,
-      "average_words_per_sentence": 7.0,
-      "image_count": 2,
+      "title": "Read the following sentences",
+      "word_count": 33,
+      "character_count": 201,
+      "sentence_count": 6,
+      "average_words_per_sentence": 5.5,
+      "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 2,
       "other_shape_count": 0,
       "font_sizes_pt": [],
       "minimum_font_size_pt": null,
       "maximum_font_size_pt": null,
       "basic_structure_score": 100,
       "findings": [
-        "No explicit font sizes could be extracted.",
-        "Duplicate title found on another slide."
+        "No explicit font sizes could be extracted."
       ],
-      "suggestions": [
-        "Check image quality, relevance, alignment, and attribution.",
-        "Check whether the repeated title is intentional."
-      ],
-      "extracted_text": "Communication\nLatin word ‘communis’ which means ‘to share’. Communication means the meaningful exchange of information between two or more participants.\n2"
+      "suggestions": [],
+      "extracted_text": "Read the following sentences\n1. I take  lessons in English language skills.\n     2.  I took lessons in English language skills last year.\n3.  I shall take lessons in English language skills next month."
     },
     {
       "slide_number": 3,
-      "title": "Process of Communication",
-      "word_count": 88,
-      "character_count": 562,
+      "title": "Take refers to the present, took refers to the past  and shall take refers to the future.",
+      "word_count": 31,
+      "character_count": 164,
       "sentence_count": 2,
-      "average_words_per_sentence": 44.0,
-      "image_count": 1,
+      "average_words_per_sentence": 15.5,
+      "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 2,
       "other_shape_count": 0,
       "font_sizes_pt": [],
       "minimum_font_size_pt": null,
       "maximum_font_size_pt": null,
-      "basic_structure_score": 85,
+      "basic_structure_score": 100,
       "findings": [
-        "Relatively dense slide: 88 words.",
-        "No explicit font sizes could be extracted.",
-        "Long sentences may reduce readability."
+        "No explicit font sizes could be extracted."
       ],
-      "suggestions": [
-        "Shorten paragraphs and use concise bullet points.",
-        "Break long sentences into shorter statements.",
-        "Check image quality, relevance, alignment, and attribution."
-      ],
-      "extracted_text": "Process of Communication\n3\nIt consists of 7 elements:\nSender- idea to be shared\nEncoding- ideas and facts into words, symbols, pictures or gestures \t\nMessage-what is being communicated, may be verbal or non-verbal\nChannel- medium through which message is transmitted to the sender\nReceiver- any person who notices and attaches some to a message/ destination for the message. He may be a listener, a reader or a viewer\nDecoding-receiver translates  and interprets it to attain meaning\nFeedback-  receiver reacts or responds to the communication sent by the sender"
+      "suggestions": [],
+      "extracted_text": "Take refers to the present, took refers to the past  and shall take refers to the future.\nVerb may refer to any of the following:\nPresent time\nPast time\nFuture time"
     },
     {
       "slide_number": 4,
-      "title": "Importance of Communication",
+      "title": "Types of Tenses",
       "word_count": 15,
-      "character_count": 141,
+      "character_count": 89,
       "sentence_count": 1,
       "average_words_per_sentence": 15.0,
       "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 2,
       "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
+      "font_sizes_pt": [
+        28.0,
+        28.0,
+        28.0,
+        28.0,
+        28.0
+      ],
+      "minimum_font_size_pt": 28.0,
+      "maximum_font_size_pt": 28.0,
       "basic_structure_score": 100,
       "findings": [
-        "No explicit font sizes could be extracted."
+        "No issues detected by the basic automated checks."
       ],
       "suggestions": [],
-      "extracted_text": "Importance of Communication\nGrowing specialization\nTechnological advancements\nCompetition\nHuman relations \nPublic relations \nPersonal asset\n4"
+      "extracted_text": "Types of Tenses\nThere are three types of Tenses:\n\nPresent Tense\nPast Tense\nFuture Tense\n."
     },
     {
       "slide_number": 5,
-      "title": "Features of successful Professional Communication",
-      "word_count": 107,
-      "character_count": 738,
-      "sentence_count": 7,
-      "average_words_per_sentence": 15.29,
+      "title": "Each tense has various forms and can be further categorized into simple, continuous, perfect, and perfect continuous tenses. The choice of tenses depe",
+      "word_count": 49,
+      "character_count": 305,
+      "sentence_count": 3,
+      "average_words_per_sentence": 16.33,
       "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 2,
       "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 82,
+      "font_sizes_pt": [
+        24.0,
+        24.0,
+        24.0
+      ],
+      "minimum_font_size_pt": 24.0,
+      "maximum_font_size_pt": 24.0,
+      "basic_structure_score": 100,
       "findings": [
-        "Text-heavy slide: 107 words.",
-        "No explicit font sizes could be extracted."
+        "No issues detected by the basic automated checks."
       ],
-      "suggestions": [
-        "Reduce text and highlight the key message."
-      ],
-      "extracted_text": "Features of successful Professional Communication\nCommunication is a non-verbal process by which information is transmitted between individuals and / or organizations so that an understanding may develop among them.\nCommunication is a continuous process of meaningful interactions among persons in an organization that results in meanings being perceived and understood in a desired way.\nThe role of the sender and receiver keeps changing in the entire communication activity.\nCommunication broadly includes both verbal and non-verbal forms. It is an art or technique of persuasion through the use of oral, written and non-verbal features.\nIt is a process which transmits and disseminates important ideas, thoughts, feelings, plans etc.\n5"
+      "suggestions": [],
+      "extracted_text": "Each tense has various forms and can be further categorized into simple, continuous, perfect, and perfect continuous tenses. The choice of tenses depends on the context, the intended meaning, and the relationship between the action and the time being referred to.\nThere are 12 tenses which are as follows:"
     },
     {
       "slide_number": 6,
-      "title": "Types of Communication",
-      "word_count": 9,
-      "character_count": 70,
+      "title": "Present tense",
+      "word_count": 14,
+      "character_count": 110,
       "sentence_count": 1,
-      "average_words_per_sentence": 9.0,
+      "average_words_per_sentence": 14.0,
       "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 2,
       "other_shape_count": 0,
       "font_sizes_pt": [
+        44.0,
+        24.0,
+        24.0,
         24.0,
         24.0
       ],
       "minimum_font_size_pt": 24.0,
-      "maximum_font_size_pt": 24.0,
+      "maximum_font_size_pt": 44.0,
       "basic_structure_score": 100,
       "findings": [
         "No issues detected by the basic automated checks."
       ],
       "suggestions": [],
-      "extracted_text": "Types of Communication\nVerbal Communication\nNon verbal Communication\n6"
+      "extracted_text": "Present tense\nSimple Present \nPresent  continuous tense\nPresent perfect tense\nPresent perfect continuous tense"
     },
     {
       "slide_number": 7,
-      "title": "Verbal communication- 2 Types",
-      "word_count": 67,
-      "character_count": 481,
-      "sentence_count": 6,
-      "average_words_per_sentence": 11.17,
+      "title": "Past Tense",
+      "word_count": 15,
+      "character_count": 101,
+      "sentence_count": 1,
+      "average_words_per_sentence": 15.0,
       "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 2,
       "other_shape_count": 0,
       "font_sizes_pt": [
-        28.0,
         24.0,
-        30.0,
+        24.0,
+        24.0,
         24.0
       ],
       "minimum_font_size_pt": 24.0,
-      "maximum_font_size_pt": 30.0,
+      "maximum_font_size_pt": 24.0,
       "basic_structure_score": 100,
       "findings": [
         "No issues detected by the basic automated checks."
       ],
       "suggestions": [],
-      "extracted_text": "Verbal communication- 2 Types\nOral Communication: a face to face interaction between the sender and the receiver. Ex: Presentations, deliver speeches, participate in group discussions, appear for interviews or simply interact with somebody.\nWritten Communication: The sender uses the written mode to transmit his/her messages. Ex: Reports, proposals, books, handbooks, letters, emails etc. It is routinely used for documentation purposes in business and government organizations.\n7"
+      "extracted_text": "Past Tense\nSimple past tense \nPast continuous tense \nPast perfect tense\nPast perfect continuous tense"
     },
     {
       "slide_number": 8,
-      "title": "Advantages of Oral Communication",
-      "word_count": 16,
-      "character_count": 131,
+      "title": "Future Tense",
+      "word_count": 15,
+      "character_count": 110,
       "sentence_count": 1,
-      "average_words_per_sentence": 16.0,
-      "image_count": 1,
+      "average_words_per_sentence": 15.0,
+      "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 2,
       "other_shape_count": 0,
       "font_sizes_pt": [
-        24.0,
         24.0,
         24.0,
         24.0,
@@ -224,630 +222,53 @@
       "findings": [
         "No issues detected by the basic automated checks."
       ],
-      "suggestions": [
-        "Check image quality, relevance, alignment, and attribution."
-      ],
-      "extracted_text": "Advantages of Oral Communication\nimmediate feedback\ntime saving\neconomical\npersonal touch\nflexibility\nsecrecy\ngroup communication\n8"
+      "suggestions": [],
+      "extracted_text": "Future Tense\nSimple Future Tense\nFuture Continuous Tense\nFuture Perfect Tense\nFuture Perfect  Continuous Tense"
     },
     {
       "slide_number": 9,
-      "title": "VERBAL COMMUNICATION:",
-      "word_count": 45,
-      "character_count": 308,
-      "sentence_count": 1,
-      "average_words_per_sentence": 45.0,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
       "image_count": 1,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [
-        28.0,
-        20.0,
-        20.0,
-        20.0,
-        20.0,
-        20.0
-      ],
-      "minimum_font_size_pt": 20.0,
-      "maximum_font_size_pt": 28.0,
-      "basic_structure_score": 95,
-      "findings": [
-        "Long sentences may reduce readability."
-      ],
-      "suggestions": [
-        "Break long sentences into shorter statements.",
-        "Check image quality, relevance, alignment, and attribution."
-      ],
-      "extracted_text": "VERBAL COMMUNICATION:\nFor good oral communication the following factors are considered:\nPreparation for speaking\nthe message must be chosen \nshould be understandable\nenable to spread enthusiasm to the listeners\npreparation will help to achieve a clear and simple message and drives  for systematic approach\n9"
-    },
-    {
-      "slide_number": 10,
-      "title": "Written Communication",
-      "word_count": 17,
-      "character_count": 105,
-      "sentence_count": 1,
-      "average_words_per_sentence": 17.0,
-      "image_count": 1,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [
-        28.0,
-        28.0
-      ],
-      "minimum_font_size_pt": 28.0,
-      "maximum_font_size_pt": 28.0,
-      "basic_structure_score": 100,
-      "findings": [
-        "No issues detected by the basic automated checks."
-      ],
-      "suggestions": [
-        "Check image quality, relevance, alignment, and attribution."
-      ],
-      "extracted_text": "Written Communication\nCan be printed or hand written\nCan be transmitted by email, letter, report, memo\n10"
-    },
-    {
-      "slide_number": 11,
-      "title": "Non Verbal Communication",
-      "word_count": 4,
-      "character_count": 27,
-      "sentence_count": 1,
-      "average_words_per_sentence": 4.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
+      "text_box_count": 0,
       "other_shape_count": 0,
       "font_sizes_pt": [],
       "minimum_font_size_pt": null,
       "maximum_font_size_pt": null,
-      "basic_structure_score": 95,
+      "basic_structure_score": 83,
       "findings": [
+        "No detectable slide title.",
         "Very little extractable text.",
         "No explicit font sizes could be extracted."
       ],
       "suggestions": [
-        "Check whether the slide communicates its purpose. A visual-only slide may be intentional."
-      ],
-      "extracted_text": "Non Verbal Communication\n11"
-    },
-    {
-      "slide_number": 12,
-      "title": "Meharbian’s Communication Model",
-      "word_count": 5,
-      "character_count": 34,
-      "sentence_count": 1,
-      "average_words_per_sentence": 5.0,
-      "image_count": 0,
-      "chart_count": 1,
-      "table_count": 0,
-      "text_box_count": 2,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [
-        "Check chart titles, labels, units, and readability."
-      ],
-      "extracted_text": "Meharbian’s Communication Model\n12"
-    },
-    {
-      "slide_number": 13,
-      "title": "Non-Verbal  communication",
-      "word_count": 52,
-      "character_count": 365,
-      "sentence_count": 3,
-      "average_words_per_sentence": 17.33,
-      "image_count": 1,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [
-        24.0
-      ],
-      "minimum_font_size_pt": 24.0,
-      "maximum_font_size_pt": 24.0,
-      "basic_structure_score": 100,
-      "findings": [
-        "No issues detected by the basic automated checks."
-      ],
-      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
         "Check image quality, relevance, alignment, and attribution."
       ],
-      "extracted_text": "Non-Verbal  communication\nKinesics or Body Language\nNodding of our head, blinking of our eyes, waving of our hands, shrugging of our shoulders are our expressions of our thoughts and feelings.\nNervousness, anger, fear, determination, horror, sympathy, pity, lack of understanding, disinterestedness can be expressed  through the body language than through words.\n13"
-    },
-    {
-      "slide_number": 14,
-      "title": "Non Verbal communication",
-      "word_count": 37,
-      "character_count": 303,
-      "sentence_count": 1,
-      "average_words_per_sentence": 37.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [
-        28.0,
-        28.0,
-        28.0,
-        28.0,
-        28.0,
-        28.0
-      ],
-      "minimum_font_size_pt": 28.0,
-      "maximum_font_size_pt": 28.0,
-      "basic_structure_score": 95,
-      "findings": [
-        "Long sentences may reduce readability.",
-        "Duplicate title found on another slide."
-      ],
-      "suggestions": [
-        "Break long sentences into shorter statements.",
-        "Check whether the repeated title is intentional."
-      ],
-      "extracted_text": "Non Verbal communication\nArtifactual communication – clothing, accessories, dressing\nVocalics/ Paralanguage- Rate, pitch, tone, volume, intensity, pausing ,word stress and silence\nProxemics- Closeness or space while communicating\nHaptics – Sense of touch\nOculesics – Eye movement, eye behaviour, gaze\n14"
-    },
-    {
-      "slide_number": 15,
-      "title": "Oculesics:",
-      "word_count": 2,
-      "character_count": 13,
-      "sentence_count": 1,
-      "average_words_per_sentence": 2.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 2,
-      "other_shape_count": 1,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 95,
-      "findings": [
-        "Very little extractable text.",
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [
-        "Check whether the slide communicates its purpose. A visual-only slide may be intentional."
-      ],
-      "extracted_text": "Oculesics:\n15"
-    },
-    {
-      "slide_number": 16,
-      "title": "FORMS OF COMMUNICATION",
-      "word_count": 20,
-      "character_count": 121,
-      "sentence_count": 1,
-      "average_words_per_sentence": 20.0,
-      "image_count": 2,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 5,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [
-        "Check image quality, relevance, alignment, and attribution."
-      ],
-      "extracted_text": "FORMS OF COMMUNICATION\nDepending on the way the messages or the information is sent, is classified as:\n16\nFormal\nInformal"
-    },
-    {
-      "slide_number": 17,
-      "title": "Formal Communication",
-      "word_count": 26,
-      "character_count": 225,
-      "sentence_count": 1,
-      "average_words_per_sentence": 26.0,
-      "image_count": 1,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 95,
-      "findings": [
-        "No explicit font sizes could be extracted.",
-        "Long sentences may reduce readability."
-      ],
-      "suggestions": [
-        "Break long sentences into shorter statements.",
-        "Check image quality, relevance, alignment, and attribution."
-      ],
-      "extracted_text": "Formal Communication\n17\nDownward communication- Superior to subordinate\n Upward communication- subordinate to superior\n Horizontal/ Lateral communication- in the same level\n Crosswise/Diagonal communication- Across any levels"
-    },
-    {
-      "slide_number": 18,
-      "title": "Informal Communication",
-      "word_count": 36,
-      "character_count": 273,
-      "sentence_count": 1,
-      "average_words_per_sentence": 36.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 95,
-      "findings": [
-        "No explicit font sizes could be extracted.",
-        "Long sentences may reduce readability."
-      ],
-      "suggestions": [
-        "Break long sentences into shorter statements."
-      ],
-      "extracted_text": "Informal Communication\nGrapevine\n word of mouth transmission of secret information, rumor and gossip\nVery useful particularly in decision making / critical issue\nExperimental or tentative announcement \nGives management an opportunity to observe reaction of the employees\n18"
-    },
-    {
-      "slide_number": 19,
-      "title": "Barriers to Effective Communication",
-      "word_count": 5,
-      "character_count": 38,
-      "sentence_count": 1,
-      "average_words_per_sentence": 5.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 2,
-      "other_shape_count": 1,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Barriers to Effective Communication\n19"
-    },
-    {
-      "slide_number": 20,
-      "title": "Barriers to Effective Communication- Physical Barriers:",
-      "word_count": 42,
-      "character_count": 292,
-      "sentence_count": 2,
-      "average_words_per_sentence": 21.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [
-        24.0
-      ],
-      "minimum_font_size_pt": 24.0,
-      "maximum_font_size_pt": 24.0,
-      "basic_structure_score": 100,
-      "findings": [
-        "No issues detected by the basic automated checks."
-      ],
-      "suggestions": [],
-      "extracted_text": "Barriers to Effective Communication- Physical Barriers:\nPhysical barriers are those that arise due to certain factors like faulty equipment, noise, closed doors and cabins that cause the information sent from sender to receiver to become distorted, which results in improper communication.\n20"
-    },
-    {
-      "slide_number": 21,
-      "title": "Barriers to Effective Communication -Semantic (language)",
-      "word_count": 53,
-      "character_count": 379,
-      "sentence_count": 3,
-      "average_words_per_sentence": 17.67,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Barriers to Effective Communication -Semantic (language)\nSemantic barriers are also known as language barriers. These barriers are caused due to improper communication between the sender and the receiver. Some instances of semantic barriers are:\nMother tongue influence\nPoor quality of message\nDifference in language\nDifference in level of proficiency\nUsing technical language\n21"
-    },
-    {
-      "slide_number": 22,
-      "title": "Barriers to Effective Communication – Psychological Barriers:",
-      "word_count": 56,
-      "character_count": 410,
-      "sentence_count": 2,
-      "average_words_per_sentence": 28.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 95,
-      "findings": [
-        "No explicit font sizes could be extracted.",
-        "Long sentences may reduce readability."
-      ],
-      "suggestions": [
-        "Break long sentences into shorter statements."
-      ],
-      "extracted_text": "Barriers to Effective Communication – Psychological Barriers:\nPsychological barriers play an important role in interpersonal communication as the state of the mind of the sender or the receiver can make it difficult to understand the information that is conveyed, which often leads to misunderstanding. \nDistrust, threat or Fear\nApathetic listening\nAssumptions\nPrejudices\nInformation overload\nRigid attitude\n22"
-    },
-    {
-      "slide_number": 23,
-      "title": "Barriers to Effective Communication – Cultural Barriers:",
-      "word_count": 32,
-      "character_count": 236,
-      "sentence_count": 2,
-      "average_words_per_sentence": 16.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 4,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Barriers to Effective Communication – Cultural Barriers:\nCultural barriers arise due to lack of similarities among the different cultures across the world. \nLanguage\nStereotypes and Prejudices\nSigns and Symbols\nBehaviours and Beliefs\n23"
-    },
-    {
-      "slide_number": 24,
-      "title": "Organizational barriers are caused due to the structure, rules and regulations present in the organization. Sometimes it is caused due to ",
-      "word_count": 37,
-      "character_count": 301,
-      "sentence_count": 2,
-      "average_words_per_sentence": 18.5,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Organizational barriers are caused due to the structure, rules and regulations present in the organization. Sometimes it is caused due to \nSuperior subordinate relationships\nComplexity of Organisational structure\nHierarchical positions\n24\nBarriers to Effective Communication – Organizational Barriers:"
-    },
-    {
-      "slide_number": 25,
-      "title": "Barriers to Effective Communication – Perceptual Barriers",
-      "word_count": 62,
-      "character_count": 394,
-      "sentence_count": 4,
-      "average_words_per_sentence": 15.5,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Barriers to Effective Communication – Perceptual Barriers\nPerceptual barriers exist in people’s minds based on how they perceive the world around them. They can be caused by the many cognitive biases of the human mind that prevent us from perceiving people and situations accurately. Individuals may also have their own unique biases based on previous experience and the influence of others.\n25"
-    },
-    {
-      "slide_number": 26,
-      "title": "Barriers to Effective Communication – Gender Barriers:",
-      "word_count": 59,
-      "character_count": 402,
-      "sentence_count": 4,
-      "average_words_per_sentence": 14.75,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Barriers to Effective Communication – Gender Barriers:\nGender barriers occur due to disparities in how different genders interact and are expected to communicate by society. Communication is also hampered by gender prejudices and assumptions that favor one gender over the other. \nEach gender has a different communication pattern and usually assumes that the other gender thinks and acts similarly.\n26"
-    },
-    {
-      "slide_number": 27,
-      "title": "Barriers to Effective Communication – Interpersonal Barriers:",
-      "word_count": 60,
-      "character_count": 434,
-      "sentence_count": 3,
-      "average_words_per_sentence": 20.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Barriers to Effective Communication – Interpersonal Barriers:\nInterpersonal barriers are any negative patterns of behavior that hinder from communicating or discourage others from communicating with you. Poor self esteem, social anxiety, arrogance makes it difficult for people to feel comfortable opening up to others. \nLack of participation\nLack of open-mindedness\nLack of trust and transparency\nLack of patience and organization\n27"
-    },
-    {
-      "slide_number": 28,
-      "title": "Steps to overcome the different types of Barriers:",
-      "word_count": 83,
-      "character_count": 575,
-      "sentence_count": 7,
-      "average_words_per_sentence": 11.86,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 90,
-      "findings": [
-        "Relatively dense slide: 83 words.",
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [
-        "Shorten paragraphs and use concise bullet points."
-      ],
-      "extracted_text": "Steps to overcome the different types of Barriers:\nEnsure clarity in message and look for genuine feedback\nUnderstand others’ emotions\nUnderstand other cultures and language variations and use the appropriate variety in the given context.\nMake sure that information overload does not affect the communication environment adversely.\nMaintain openness and acknowledge that people have different perceptions and views regarding things.\nListen attentively to others.\nSpeak with clarity and conviction. \nEncourage innovative ideas and views so that people do not live in fears.\n28"
-    },
-    {
-      "slide_number": 29,
-      "title": "INTERPERSONAL  SKILLS",
-      "word_count": 51,
-      "character_count": 331,
-      "sentence_count": 3,
-      "average_words_per_sentence": 17.0,
-      "image_count": 1,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [
-        "Check image quality, relevance, alignment, and attribution."
-      ],
-      "extracted_text": "INTERPERSONAL  SKILLS\nThe ability which enables a person to understand others and to make others understand him.\nThey are also known as ‘people skills’, soft skills and  Human skills\nVery essential for interpersonal communication.\nTrust and cooperation can be generated\n can be motivated to share information in the right spirit\n29"
-    },
-    {
-      "slide_number": 30,
-      "title": "Importance of Interpersonal skills",
-      "word_count": 42,
-      "character_count": 275,
-      "sentence_count": 1,
-      "average_words_per_sentence": 42.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 95,
-      "findings": [
-        "No explicit font sizes could be extracted.",
-        "Long sentences may reduce readability."
-      ],
-      "suggestions": [
-        "Break long sentences into shorter statements."
-      ],
-      "extracted_text": "Importance of Interpersonal skills\nBrings in the good image\nYou show self awareness\nThey make you relatable\nHelps to be empathetic and a better person\nHelps to express ideas and thoughts/feelings\nBuilds confidence \nValue diversity, individual respect and different customs\n30"
-    },
-    {
-      "slide_number": 31,
-      "title": "Intrapersonal Skills",
-      "word_count": 32,
-      "character_count": 280,
-      "sentence_count": 2,
-      "average_words_per_sentence": 16.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Intrapersonal Skills\nIt implies individual reflection, contemplation, and meditation. The ability to enable you to effectively control your :\n      Emotions\n      Create objectives\n       Self motivate\n       Dealing with distractions\n       Strategize and modify your approach\n31"
-    },
-    {
-      "slide_number": 32,
-      "title": "THANK YOU",
-      "word_count": 3,
-      "character_count": 12,
-      "sentence_count": 1,
-      "average_words_per_sentence": 3.0,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 3,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 95,
-      "findings": [
-        "Very little extractable text.",
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [
-        "Check whether the slide communicates its purpose. A visual-only slide may be intentional."
-      ],
-      "extracted_text": "THANK YOU\n32"
+      "extracted_text": ""
     }
   ],
   "repeated_four_word_phrases": [
     {
-      "phrase": "barriers to effective communication",
-      "count": 9
+      "phrase": "lessons in english language",
+      "count": 3
     },
     {
-      "phrase": "between the sender and",
+      "phrase": "in english language skills",
+      "count": 3
+    },
+    {
+      "phrase": "take lessons in english",
       "count": 2
     },
     {
-      "phrase": "the sender and the",
-      "count": 2
-    },
-    {
-      "phrase": "sender and the receiver",
-      "count": 2
-    },
-    {
-      "phrase": "are also known as",
-      "count": 2
-    },
-    {
-      "phrase": "barriers are caused due",
-      "count": 2
-    },
-    {
-      "phrase": "are caused due to",
+      "phrase": "take refers to the",
       "count": 2
     }
   ]

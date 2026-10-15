@@ -1,11 +1,11 @@
 ======================================================================
                  POWERPOINT ANALYSIS REPORT
 ======================================================================
-File name: communication.pptx
-Total slides: 32
-Total extracted words: 1188
-Average words per slide: 37.12
-Average basic structure score: 97.1/100
+File name: Module 4- Tenses [Recovered].pptx
+Total slides: 9
+Total extracted words: 173
+Average words per slide: 19.22
+Average basic structure score: 97.6/100
 
 SCORING EXPLANATION
 ----------------------------------------------------------------------
@@ -13,121 +13,13 @@ Rule-based heuristic based on detectable titles, text density, explicitly sized 
 
 OVERALL FINDINGS
 ----------------------------------------------------------------------
-- 1 slide(s) contain more than 100 words.
-- 4 slide(s) have fewer than 5 words.
+- 1 slide(s) have no detectable title.
+- 2 slide(s) have fewer than 5 words.
 
 SLIDE-BY-SLIDE ANALYSIS
 ======================================================================
 
-SLIDE 1: Communication
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
-- Very little extractable text.
-
-RECOMMENDATIONS:
-- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
-
-SLIDE 2: Communication
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-- Duplicate title found on another slide.
-
-RECOMMENDATIONS:
-- Check image quality, relevance, alignment, and attribution.
-- Check whether the repeated title is intentional.
-
-SLIDE 3: Process of Communication
-----------------------------------------------------------------------
-Basic structure score: 85/100
-
-FINDINGS:
-- Relatively dense slide: 88 words.
-- No explicit font sizes could be extracted.
-- Long sentences may reduce readability.
-
-RECOMMENDATIONS:
-- Shorten paragraphs and use concise bullet points.
-- Break long sentences into shorter statements.
-- Check image quality, relevance, alignment, and attribution.
-
-SLIDE 4: Importance of Communication
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-No specific recommendations.
-
-SLIDE 5: Features of successful Professional Communication
-----------------------------------------------------------------------
-Basic structure score: 82/100
-
-FINDINGS:
-- Text-heavy slide: 107 words.
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-- Reduce text and highlight the key message.
-
-SLIDE 6: Types of Communication
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No issues detected by the basic automated checks.
-
-RECOMMENDATIONS:
-No specific recommendations.
-
-SLIDE 7: Verbal communication- 2 Types
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No issues detected by the basic automated checks.
-
-RECOMMENDATIONS:
-No specific recommendations.
-
-SLIDE 8: Advantages of Oral Communication
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No issues detected by the basic automated checks.
-
-RECOMMENDATIONS:
-- Check image quality, relevance, alignment, and attribution.
-
-SLIDE 9: VERBAL COMMUNICATION:
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
-- Long sentences may reduce readability.
-
-RECOMMENDATIONS:
-- Break long sentences into shorter statements.
-- Check image quality, relevance, alignment, and attribution.
-
-SLIDE 10: Written Communication
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No issues detected by the basic automated checks.
-
-RECOMMENDATIONS:
-- Check image quality, relevance, alignment, and attribution.
-
-SLIDE 11: Non Verbal Communication
+SLIDE 1: Tenses
 ----------------------------------------------------------------------
 Basic structure score: 95/100
 
@@ -138,83 +30,7 @@ FINDINGS:
 RECOMMENDATIONS:
 - Check whether the slide communicates its purpose. A visual-only slide may be intentional.
 
-SLIDE 12: Meharbian’s Communication Model
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-- Check chart titles, labels, units, and readability.
-
-SLIDE 13: Non-Verbal  communication
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No issues detected by the basic automated checks.
-
-RECOMMENDATIONS:
-- Check image quality, relevance, alignment, and attribution.
-
-SLIDE 14: Non Verbal communication
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
-- Long sentences may reduce readability.
-- Duplicate title found on another slide.
-
-RECOMMENDATIONS:
-- Break long sentences into shorter statements.
-- Check whether the repeated title is intentional.
-
-SLIDE 15: Oculesics:
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
-- Very little extractable text.
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
-
-SLIDE 16: FORMS OF COMMUNICATION
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-- Check image quality, relevance, alignment, and attribution.
-
-SLIDE 17: Formal Communication
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-- Long sentences may reduce readability.
-
-RECOMMENDATIONS:
-- Break long sentences into shorter statements.
-- Check image quality, relevance, alignment, and attribution.
-
-SLIDE 18: Informal Communication
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-- Long sentences may reduce readability.
-
-RECOMMENDATIONS:
-- Break long sentences into shorter statements.
-
-SLIDE 19: Barriers to Effective Communication
+SLIDE 2: Read the following sentences
 ----------------------------------------------------------------------
 Basic structure score: 100/100
 
@@ -224,7 +40,17 @@ FINDINGS:
 RECOMMENDATIONS:
 No specific recommendations.
 
-SLIDE 20: Barriers to Effective Communication- Physical Barriers:
+SLIDE 3: Take refers to the present, took refers to the past  and shall take refers to the future.
+----------------------------------------------------------------------
+Basic structure score: 100/100
+
+FINDINGS:
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 4: Types of Tenses
 ----------------------------------------------------------------------
 Basic structure score: 100/100
 
@@ -234,139 +60,66 @@ FINDINGS:
 RECOMMENDATIONS:
 No specific recommendations.
 
-SLIDE 21: Barriers to Effective Communication -Semantic (language)
+SLIDE 5: Each tense has various forms and can be further categorized into simple, continuous, perfect, and perfect continuous tenses. The choice of tenses depe
 ----------------------------------------------------------------------
 Basic structure score: 100/100
 
 FINDINGS:
-- No explicit font sizes could be extracted.
+- No issues detected by the basic automated checks.
 
 RECOMMENDATIONS:
 No specific recommendations.
 
-SLIDE 22: Barriers to Effective Communication – Psychological Barriers:
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-- Long sentences may reduce readability.
-
-RECOMMENDATIONS:
-- Break long sentences into shorter statements.
-
-SLIDE 23: Barriers to Effective Communication – Cultural Barriers:
+SLIDE 6: Present tense
 ----------------------------------------------------------------------
 Basic structure score: 100/100
 
 FINDINGS:
-- No explicit font sizes could be extracted.
+- No issues detected by the basic automated checks.
 
 RECOMMENDATIONS:
 No specific recommendations.
 
-SLIDE 24: Organizational barriers are caused due to the structure, rules and regulations present in the organization. Sometimes it is caused due to 
+SLIDE 7: Past Tense
 ----------------------------------------------------------------------
 Basic structure score: 100/100
 
 FINDINGS:
-- No explicit font sizes could be extracted.
+- No issues detected by the basic automated checks.
 
 RECOMMENDATIONS:
 No specific recommendations.
 
-SLIDE 25: Barriers to Effective Communication – Perceptual Barriers
+SLIDE 8: Future Tense
 ----------------------------------------------------------------------
 Basic structure score: 100/100
 
 FINDINGS:
-- No explicit font sizes could be extracted.
+- No issues detected by the basic automated checks.
 
 RECOMMENDATIONS:
 No specific recommendations.
 
-SLIDE 26: Barriers to Effective Communication – Gender Barriers:
+SLIDE 9: (No title detected)
 ----------------------------------------------------------------------
-Basic structure score: 100/100
+Basic structure score: 83/100
 
 FINDINGS:
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-No specific recommendations.
-
-SLIDE 27: Barriers to Effective Communication – Interpersonal Barriers:
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-No specific recommendations.
-
-SLIDE 28: Steps to overcome the different types of Barriers:
-----------------------------------------------------------------------
-Basic structure score: 90/100
-
-FINDINGS:
-- Relatively dense slide: 83 words.
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-- Shorten paragraphs and use concise bullet points.
-
-SLIDE 29: INTERPERSONAL  SKILLS
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-- Check image quality, relevance, alignment, and attribution.
-
-SLIDE 30: Importance of Interpersonal skills
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-- Long sentences may reduce readability.
-
-RECOMMENDATIONS:
-- Break long sentences into shorter statements.
-
-SLIDE 31: Intrapersonal Skills
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No explicit font sizes could be extracted.
-
-RECOMMENDATIONS:
-No specific recommendations.
-
-SLIDE 32: THANK YOU
-----------------------------------------------------------------------
-Basic structure score: 95/100
-
-FINDINGS:
+- No detectable slide title.
 - Very little extractable text.
 - No explicit font sizes could be extracted.
 
 RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
 - Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
 
 REPEATED FOUR-WORD PHRASES
 ======================================================================
-- 'barriers to effective communication': 9 occurrences
-- 'between the sender and': 2 occurrences
-- 'the sender and the': 2 occurrences
-- 'sender and the receiver': 2 occurrences
-- 'are also known as': 2 occurrences
-- 'barriers are caused due': 2 occurrences
-- 'are caused due to': 2 occurrences
+- 'lessons in english language': 3 occurrences
+- 'in english language skills': 3 occurrences
+- 'take lessons in english': 2 occurrences
+- 'take refers to the': 2 occurrences
 
 ======================================================================
 END OF REPORT

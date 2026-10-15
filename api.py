@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -19,25 +19,38 @@ DATA_PROCESSED = PROJECT_ROOT / "data" / "processed"
 OUTPUT_DIR = PROJECT_ROOT / "output"
 PPT_OUTPUT_DIR = PROJECT_ROOT / "output" / "ppt_analysed"
 
-# Add Astra-Frontend/backend to sys.path so we can import PPTanalyzer
-FRONTEND_BACKEND_DIR = PROJECT_ROOT / "Astra-Frontend" / "backend"
-if FRONTEND_BACKEND_DIR.exists() and str(FRONTEND_BACKEND_DIR) not in sys.path:
-    sys.path.append(str(FRONTEND_BACKEND_DIR))
+# Ensure directories exist
+DATA_RAW.mkdir(parents=True, exist_ok=True)
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+PPT_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+# Add project root to sys.path so src modules can be imported smoothly
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+# Load PPT Analyzer directly from src/ppt_analysis/ppt_analyser.py
 try:
-    from PPTanalyzer import analyze_pptx
+    from src.ppt_analysis.ppt_analyser import analyze_presentation, analyze_pptx
     PPT_ANALYZER_AVAILABLE = True
+    print("[Astra-API] Successfully loaded PPT Analyzer from src/ppt_analysis/ppt_analyser.py")
 except Exception as e:
-    print(f"Warning: PPTanalyzer could not be loaded: {e}")
-    PPT_ANALYZER_AVAILABLE = False
+    print(f"[Astra-API] Warning: Could not load PPT analyzer from src/ppt_analysis/ppt_analyser.py: {e}")
+# Load PDF Report Generator from src/report_pdf.py
+try:
+    from src.report_pdf import create_speech_report_pdf
+    PDF_GENERATOR_AVAILABLE = True
+    print("[Astra-API] Successfully loaded PDF Generator from src/report_pdf.py")
+except Exception as e:
+    print(f"[Astra-API] Warning: Could not load PDF generator from src/report_pdf.py: {e}")
+    PDF_GENERATOR_AVAILABLE = False
 
 app = FastAPI(
     title="Astra-Hunters-2.0 API",
     version="2.0.0",
-    description="Multimodal AI Public Speaking Evaluation Platform Backend",
+    description="Multimodal AI Public Speaking & Presentation Evaluation Platform Backend",
 )
 
-# CORS configuration to allow requests from Vite dev server (and other frontends)
+# CORS configuration to allow requests from Vite dev server and frontend applications
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -61,7 +74,13 @@ def health_check():
     return {
         "status": "ok",
         "service": "Astra-Hunters-2.0 Evaluation Platform",
-        "endpoints": ["/analyze-video", "/api/analyze-ppt"],
+        "ppt_analyzer_loaded": PPT_ANALYZER_AVAILABLE,
+        "endpoints": [
+            "/analyze-video",
+            "/api/analyze-ppt",
+            "/api/ppt-report",
+            "/api/presentation-accent",
+        ],
     }
 
 
@@ -79,6 +98,38 @@ def parse_accent_file(accent_text: str):
             if len(parts) > 1:
                 confidence = parts[1].strip()
     return accent, confidence
+
+
+@app.get("/api/accent")
+@app.get("/api/presentation-accent")
+def get_presentation_accent():
+    """Returns the latest analyzed accent from output/audio_out/presentation_accent.txt."""
+    accent_candidates = [
+        OUTPUT_DIR / "audio_out" / "presentation_accent.txt",
+        OUTPUT_DIR / "presentation_accent.txt",
+    ]
+    for cand in accent_candidates:
+        if cand.exists():
+            try:
+                raw = cand.read_text(encoding="utf-8", errors="replace").strip()
+                accent, conf = parse_accent_file(raw)
+                return {
+                    "status": "success",
+                    "detected_accent": accent,
+                    "confidence": conf,
+                    "raw_text": raw,
+                    "file_path": str(cand),
+                }
+            except Exception as e:
+                pass
+
+    return {
+        "status": "not_found",
+        "detected_accent": "Standard English",
+        "confidence": "",
+        "raw_text": "",
+        "message": "Accent analysis file not found in output/audio_out/.",
+    }
 
 
 @app.post("/analyze-video")
@@ -125,7 +176,7 @@ async def analyze_video(file: UploadFile = File(...)):
     print(f"\n[Astra-API] Saved presentation video to: {target_video_path.resolve()}")
     print("[Astra-API] Executing ML Pipeline via run_pipeline.py...")
 
-    # 3. Execute python run_pipeline.py via subprocess
+    # 3. Execute python run_pipeline.py via subprocess with UTF-8 IO encoding
     run_pipeline_script = PROJECT_ROOT / "run_pipeline.py"
     if not run_pipeline_script.exists():
         raise HTTPException(
@@ -133,6 +184,8 @@ async def analyze_video(file: UploadFile = File(...)):
         )
 
     try:
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
         pipeline_process = subprocess.run(
             [sys.executable, str(run_pipeline_script)],
             cwd=str(PROJECT_ROOT),
@@ -140,6 +193,7 @@ async def analyze_video(file: UploadFile = File(...)):
             text=True,
             encoding="utf-8",
             errors="replace",
+            env=env,
         )
     except Exception as e:
         raise HTTPException(
@@ -217,8 +271,8 @@ async def analyze_video(file: UploadFile = File(...)):
 
     # 4d. presentation_accent.txt (handle gracefully if missing)
     accent_candidates = [
-        OUTPUT_DIR / "presentation_accent.txt",
         OUTPUT_DIR / "audio_out" / "presentation_accent.txt",
+        OUTPUT_DIR / "presentation_accent.txt",
     ]
     presentation_accent_raw = ""
     detected_accent = "Standard English"
@@ -305,45 +359,122 @@ async def analyze_video(file: UploadFile = File(...)):
     return JSONResponse(status_code=200, content=response_payload)
 
 
-# Optional PPT analysis endpoint for full integration
+# PowerPoint Analysis endpoints connected to src/ppt_analysis/ppt_analyser.py
 @app.post("/api/analyze-ppt")
 @app.post("/analyze-ppt")
 async def analyze_ppt(file: UploadFile = File(...)):
-    """Analyze a PowerPoint (.pptx) file and return structural findings."""
+    """
+    Analyze a PowerPoint (.pptx) file using the engine in src/ppt_analysis/ppt_analyser.py.
+    Saves the presentation and generates output/ppt_analysed/pptanalysis.json & pptanalysis.txt in the backend.
+    """
     if not PPT_ANALYZER_AVAILABLE:
         raise HTTPException(
-            status_code=500, detail="PPT Analyzer module is not loaded."
+            status_code=500,
+            detail="PPT Analyzer module (src/ppt_analysis/ppt_analyser.py) is not loaded.",
         )
 
-    filename = file.filename or ""
+    filename = file.filename or "presentation.pptx"
     if not filename.lower().endswith(".pptx"):
         raise HTTPException(
             status_code=400, detail="Only PowerPoint .pptx files are supported."
         )
 
-    temp_path = None
+    DATA_RAW.mkdir(parents=True, exist_ok=True)
+    PPT_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    target_ppt_path = DATA_RAW / filename
+
     try:
-        suffix = Path(filename).suffix or ".pptx"
-        with tempfile.NamedTemporaryFile(
-            prefix="astra_ppt_", suffix=suffix, delete=False
-        ) as temp:
-            shutil.copyfileobj(file.file, temp)
-            temp_path = Path(temp.name)
+        with open(target_ppt_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Failed to save PowerPoint file: {str(e)}"
+        )
+    finally:
+        await file.close()
 
-        from pptx import Presentation
+    print(f"\n[Astra-API] Saved PowerPoint file to: {target_ppt_path.resolve()}")
+    print("[Astra-API] Executing PPT analysis via src/ppt_analysis/ppt_analyser.py...")
 
-        Presentation(str(temp_path))  # Validate PPTX
-        report = analyze_pptx(temp_path, PPT_OUTPUT_DIR)
+    try:
+        # Runs analysis and produces backend reports in output/ppt_analysed/
+        report = analyze_presentation(target_ppt_path, PPT_OUTPUT_DIR)
         report["file_name"] = filename
+        print(
+            f"[Astra-API] PPT analysis finished for '{filename}'! Score: {report.get('average_basic_structure_score')}/100"
+        )
         return {"success": True, "report": report}
     except Exception as exc:
+        print(f"[Astra-API] Error analyzing PowerPoint: {exc}")
         raise HTTPException(
             status_code=400, detail=f"Could not analyze PowerPoint file: {str(exc)}"
         )
-    finally:
-        if temp_path and temp_path.exists():
-            temp_path.unlink(missing_ok=True)
-        await file.close()
+
+
+@app.get("/api/ppt-report")
+@app.get("/api/ppt-analysis")
+def get_ppt_report():
+    """Returns the latest PowerPoint analysis report saved in the backend."""
+    json_path = PPT_OUTPUT_DIR / "pptanalysis.json"
+    txt_path = PPT_OUTPUT_DIR / "pptanalysis.txt"
+
+    if not json_path.exists():
+        raise HTTPException(
+            status_code=404, detail="No PowerPoint analysis report found in output/ppt_analysed/."
+        )
+
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            report_data = json.load(f)
+        text_content = ""
+        if txt_path.exists():
+            text_content = txt_path.read_text(encoding="utf-8", errors="replace")
+        return {"success": True, "report": report_data, "text_report": text_content}
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500, detail=f"Failed to load PPT report: {str(exc)}"
+        )
+
+
+@app.post("/api/report/pdf")
+async def generate_speech_report_pdf(request: Request):
+    """
+    Generates and streams a downloadable PDF speech performance report.
+    Compatible with the Progress / Analyzing page.
+    """
+    try:
+        speech_data = await request.json()
+    except Exception:
+        raise HTTPException(status_code=400, detail="Invalid JSON payload provided.")
+
+    if not PDF_GENERATOR_AVAILABLE:
+        raise HTTPException(
+            status_code=500, detail="PDF generator module is not available on the backend."
+        )
+
+    try:
+        pdf_bytes = create_speech_report_pdf(speech_data)
+        safe_title = (
+            re.sub(r"[^a-zA-Z0-9_\- ]+", "", speech_data.get("title", "speech_report")).strip()
+            or "speech_report"
+        )
+        safe_filename = f"{safe_title.replace(' ', '_')}.pdf"
+
+        return Response(
+            content=pdf_bytes,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": f'attachment; filename="{safe_filename}"',
+                "Access-Control-Expose-Headers": "Content-Disposition",
+            },
+        )
+    except Exception as exc:
+        print(f"[Astra-API] Error generating report PDF: {exc}")
+        raise HTTPException(
+            status_code=500, detail=f"Failed to generate PDF report: {str(exc)}"
+        )
+
 
 
 if __name__ == "__main__":

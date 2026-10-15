@@ -1,2 +1,2 @@
 audio_file,recording_total_words,recording_overall_wpm,recording_active_wpm,recording_total_fillers,recording_filler_frequency_percent,recording_total_pauses,recording_total_pause_seconds,recording_active_seconds_estimate,pitch_mean_hz,pitch_median_hz,pitch_std_hz
-presentation.wav,51,162.72,196.59,1,1.96,5,3.24,15.566,139.7975,132.3825,47.277499999999996
+presentation.wav,38,115.17,143.96,3,7.89,7,3.96,15.837,134.85500000000002,115.63499999999999,50.39
