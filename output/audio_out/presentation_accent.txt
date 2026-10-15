@@ -1,3 +1,0 @@
-Audio File: presentation.wav
-Detected Accent: indian
-Confidence (score): 100.00%

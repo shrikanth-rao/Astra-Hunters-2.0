@@ -6,7 +6,7 @@ def prepare():
     output_dir = Path("output"/"audio_out")
     output_dir.mkdir(exist_ok=True)
     
-    audio_features_path = output_dir / "speech_ml_dataset.csv"
+    audio_features_path = output_dir / "audio_ml_dataset" / "speech_ml_dataset.csv"
     labels_path = output_dir / "human_labels.csv"
     final_training_path = output_dir / "training_dataset.csv"
 
