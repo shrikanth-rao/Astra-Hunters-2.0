@@ -72,6 +72,14 @@ def predict_new_video():
         print(f"   • {category}: {score}/100")
     print(f"Results saved to: {results_path.resolve()}")
     print("="*50 + "\n")
+    import subprocess
+
+# ... existing predict_scores.py code ...
+
+    print("\n✅ Final predicted scores saved to output/final_predicted_scores.json")
+    
+    # Trigger the LLM coaching script
+    subprocess.run(["python", "src/generate_coaching.py"])
 
 if __name__ == "__main__":
     predict_new_video()
