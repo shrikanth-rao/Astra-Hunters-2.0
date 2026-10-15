@@ -1,8 +1,8 @@
 {
     "video_filename": "presentation.mp4",
-    "fps": 24.18280561532944,
-    "frame_count": 944,
-    "width": 1920,
-    "height": 1080,
-    "duration_seconds": 39.036
+    "fps": 30.0,
+    "frame_count": 565,
+    "width": 1280,
+    "height": 720,
+    "duration_seconds": 18.833333333333332
 }

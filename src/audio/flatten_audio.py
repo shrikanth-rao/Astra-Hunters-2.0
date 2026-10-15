@@ -6,7 +6,7 @@ def flatten_audio_data():
     output_path = Path("output/audio_ml_dataset/flattened_audio_dataset.csv")
     
     if not input_path.exists():
-        print(f"❌ Error: {input_path.resolve()} not found.")
+        print(f" Error: {input_path.resolve()} not found.")
         return
         
     print("Loading multi-row audio dataset...")
@@ -44,7 +44,7 @@ def flatten_audio_data():
     
     final_df.to_csv(output_path, index=False)
     
-    print(f"✅ Success! Flattened audio data saved to: {output_path.name}")
+    print(f" Success! Flattened audio data saved to: {output_path.name}")
     print(f"Total presentations logged in flattened dataset: {len(final_df)}")
 
 if __name__ == "__main__":

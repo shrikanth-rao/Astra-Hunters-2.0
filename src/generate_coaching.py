@@ -12,7 +12,7 @@ def generate_feedback():
     audio_path = Path("output/audio_ml_dataset/flattened_audio_dataset.csv")
     
     if not scores_path.exists() or not audio_path.exists():
-        print("❌ Error: Missing predicted scores or audio dataset.")
+        print(" Error: Missing predicted scores or audio dataset.")
         return
 
     # 1. Load the AI predicted scores
@@ -54,7 +54,7 @@ def generate_feedback():
             """
 
             print(f"\n{'='*60}")
-            print("🧠 GENERATING GROQ AI COACHING FEEDBACK...")
+            print(" GENERATING GROQ AI COACHING FEEDBACK...")
             print(f"{'='*60}\n")
 
             chat_completion = client.chat.completions.create(
@@ -74,7 +74,7 @@ def generate_feedback():
         )
             feedback = chat_completion.choices[0].message.content
         except Exception as e:
-            print(f"⚠️ Groq API warning ({e}). Falling back to local metric summary...")
+            print(f" Groq API warning ({e}). Falling back to local metric summary...")
 
     # 4. Fallback rule-based summary if API is skipped or fails
     if not feedback:
@@ -85,7 +85,7 @@ def generate_feedback():
             f"- Recommendation: Focus on maintaining steady pacing and minimizing filler sounds during transitions."
         )
 
-    print("🎯 COACHING REPORT:\n")
+    print(" COACHING REPORT:\n")
     print(feedback)
     print(f"\n{'='*60}")
 

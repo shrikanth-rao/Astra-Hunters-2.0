@@ -14,7 +14,7 @@ def predict_new_video():
     
     # 1. Verify model exists
     if not model_path.exists():
-        print("❌ Error: Trained model not found. Please run train_model.py first.")
+        print(" Error: Trained model not found. Please run train_model.py first.")
         return
 
     # 2. Load the trained brain and expected feature column list
@@ -36,7 +36,7 @@ def predict_new_video():
     merged_data = pd.merge(latest_audio, latest_video, on='base_name', how='inner')
     
     if merged_data.empty:
-        print("❌ Error: Could not match audio and video data for the newest video.")
+        print(" Error: Could not match audio and video data for the newest video.")
         return
         
     video_name = merged_data['base_name'].iloc[0]
@@ -67,7 +67,7 @@ def predict_new_video():
         json.dump(results, f, indent=4)
         
     print("\n" + "="*50)
-    print("✅ PREDICTION COMPLETE!")
+    print("PREDICTION COMPLETE!")
     for category, score in results["predicted_scores"].items():
         print(f"   • {category}: {score}/100")
     print(f"Results saved to: {results_path.resolve()}")
@@ -76,10 +76,10 @@ def predict_new_video():
 
 # ... existing predict_scores.py code ...
 
-    print("\n✅ Final predicted scores saved to output/final_predicted_scores.json")
+    print("\n Final predicted scores saved to output/final_predicted_scores.json")
     
-    # Trigger the LLM coaching script
-    subprocess.run(["python", "src/generate_coaching.py"])
+    import sys
+    subprocess.run([sys.executable, "src/generate_coaching.py"])
 
 if __name__ == "__main__":
     predict_new_video()

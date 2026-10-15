@@ -5,28 +5,28 @@ from pathlib import Path
 def run_script(script_path, description, args=None):
     """Runs a Python script with optional arguments and stops if an error occurs."""
     print(f"\n{'='*60}")
-    print(f"🚀 STARTING: {description}")
+    print(f" STARTING: {description}")
     
     cmd = [sys.executable, script_path]
     if args:
         cmd.extend(args)
         
-    print(f"▶ Executing: {' '.join(cmd)}")
+    print(f" Executing: {' '.join(cmd)}")
     print(f"{'='*60}\n")
     
     try:
         subprocess.run(cmd, check=True)
-        print(f"\n✅ SUCCESS: {description} completed.")
+        print(f"\n SUCCESS: {description} completed.")
     except subprocess.CalledProcessError as e:
-        print(f"\n❌ ERROR: {description} failed with exit code {e.returncode}.")
+        print(f"\n ERROR: {description} failed with exit code {e.returncode}.")
         print("Stopping the pipeline to prevent cascading errors.")
         sys.exit(1)
     except FileNotFoundError:
-        print(f"\n❌ ERROR: Could not find script at '{script_path}'.")
+        print(f"\n ERROR: Could not find script at '{script_path}'.")
         sys.exit(1)
 
 def main():
-    print("\n🌟 ASTRA-HUNTERS-2.0 MASTER ANALYSIS PIPELINE 🌟")
+    print("\n ASTRA-HUNTERS-2.0 MASTER ANALYSIS PIPELINE ")
     
     pipeline_steps = [
         {
@@ -63,12 +63,12 @@ def main():
     for step in pipeline_steps:
         script_path = Path(step["script"])
         if not script_path.exists():
-            print(f"\n⚠️ WARNING: Script '{script_path}' not found. Skipping...")
+            print(f"\n WARNING: Script '{script_path}' not found. Skipping...")
             continue
         run_script(str(script_path), step["desc"], step.get("args"))
         
     print("\n" + "="*60)
-    print("🎉 PIPELINE COMPLETED SUCCESSFULLY! 🎉")
+    print(" PIPELINE COMPLETED SUCCESSFULLY! ")
     print("="*60 + "\n")
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ def train_multimodal_model():
     feature_names_path = Path("output/model_features.joblib")
     
     if not dataset_path.exists():
-        print(f"❌ Error: Could not find {dataset_path}")
+        print(f" Error: Could not find {dataset_path}")
         return
         
     df = pd.read_csv(dataset_path)
@@ -40,7 +40,7 @@ def train_multimodal_model():
     
     # --- PERFORMANCE EVALUATION ---
     print("\n" + "="*50)
-    print("📊 AI MODEL PERFORMANCE REPORT")
+    print(" AI MODEL PERFORMANCE REPORT")
     print("="*50)
     
     # We use cross_val_predict to get an honest assessment of how the model performs on unseen data
@@ -61,13 +61,13 @@ def train_multimodal_model():
     
     # Overall averages
     overall_mae = mean_absolute_error(y, cv_predictions)
-    print(f"\n🏆 OVERALL AVERAGE ERROR: ±{overall_mae:.2f} points")
+    print(f"\n OVERALL AVERAGE ERROR: ±{overall_mae:.2f} points")
     print("="*50 + "\n")
     
     # Save the finalized model
     joblib.dump(best_model, model_out_path)
     joblib.dump(X.columns.tolist(), feature_names_path)
-    print(f"✅ Model saved successfully!")
+    print(f" Model saved successfully!")
 
 if __name__ == "__main__":
     train_multimodal_model()

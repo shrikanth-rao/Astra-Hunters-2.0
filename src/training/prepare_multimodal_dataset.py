@@ -12,7 +12,7 @@ def merge_datasets():
     # Verify files exist before attempting to load
     missing = [p.name for p in [audio_path, video_path, labels_path] if not p.exists()]
     if missing:
-        print(f"❌ Error: Missing required files for fusion: {', '.join(missing)}")
+        print(f" Error: Missing required files for fusion: {', '.join(missing)}")
         print("Please ensure you have flattened the audio and created human_labels.csv.")
         return
         
@@ -26,19 +26,19 @@ def merge_datasets():
     if 'audio_file' in audio_df.columns:
         audio_df['base_name'] = audio_df['audio_file'].apply(lambda x: str(Path(x).stem))
     else:
-        print("❌ Error: 'audio_file' column missing from flattened_audio_dataset.csv")
+        print(" Error: 'audio_file' column missing from flattened_audio_dataset.csv")
         return
         
     if 'video_file' in video_df.columns:
         video_df['base_name'] = video_df['video_file'].apply(lambda x: str(Path(x).stem))
     else:
-        print("❌ Error: 'video_file' column missing from video_ml_dataset.csv")
+        print(" Error: 'video_file' column missing from video_ml_dataset.csv")
         return
         
     if 'file_name' in labels_df.columns:
         labels_df['base_name'] = labels_df['file_name'].apply(lambda x: str(Path(x).stem))
     else:
-        print("❌ Error: 'file_name' column missing from human_labels.csv")
+        print(" Error: 'file_name' column missing from human_labels.csv")
         return
     
     # 3. Merge Audio and Video features
@@ -66,7 +66,7 @@ def merge_datasets():
     final_dataset.to_csv(final_path, index=False)
     
     print("\n" + "="*60)
-    print(f"🎉 MULTIMODAL FUSION COMPLETE 🎉")
+    print(f" MULTIMODAL FUSION COMPLETE ")
     print(f"Master dataset saved to: {final_path.resolve()}")
     print(f"Total merged presentations ready for training: {len(final_dataset)}")
     print("="*60 + "\n")

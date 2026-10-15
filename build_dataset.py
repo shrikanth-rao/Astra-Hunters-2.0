@@ -5,14 +5,14 @@ import pandas as pd
 from pathlib import Path
 
 def main():
-    print("🌟 BATCH DATASET BUILDER 🌟")
+    print(" BATCH DATASET BUILDER ")
     
     batch_dir = Path("data/batch_videos")
     batch_dir.mkdir(parents=True, exist_ok=True)
     
     videos = list(batch_dir.glob("*.mp4"))
     if not videos:
-        print(f"❌ No videos found! Please drop your training MP4s into: {batch_dir.resolve()}")
+        print(f" No videos found! Please drop your training MP4s into: {batch_dir.resolve()}")
         return
         
     print(f"Found {len(videos)} videos to process.\n")
@@ -24,7 +24,7 @@ def main():
     
     for index, video_path in enumerate(videos, start=1):
         print(f"\n{'='*60}")
-        print(f"🎥 PROCESSING VIDEO {index}/{len(videos)}: {video_path.name}")
+        print(f" PROCESSING VIDEO {index}/{len(videos)}: {video_path.name}")
         print(f"{'='*60}")
         
         # 1. Temporarily copy and rename the video
@@ -35,7 +35,7 @@ def main():
         try:
             subprocess.run([sys.executable, "run_pipeline.py"], check=True)
         except subprocess.CalledProcessError:
-            print(f"⚠️ Pipeline failed for {video_path.name}. Skipping to next video...")
+            print(f" Pipeline failed for {video_path.name}. Skipping to next video...")
             continue
             
         # 3. Patch Audio CSV
@@ -62,9 +62,9 @@ def main():
                 df_flat.loc[mask_flat, 'audio_file'] = video_path.stem + ".wav"
                 df_flat.to_csv(flattened_csv_path, index=False)
                 
-        print(f"✅ Real name '{video_path.stem}' safely logged to all datasets.")
+        print(f" Real name '{video_path.stem}' safely logged to all datasets.")
                 
-    print("\n🎉 ALL VIDEOS PROCESSED! Your datasets are ready for training.")
+    print("\n ALL VIDEOS PROCESSED! Your datasets are ready for training.")
 
 if __name__ == "__main__":
     main()

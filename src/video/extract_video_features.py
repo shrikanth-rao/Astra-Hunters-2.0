@@ -65,7 +65,7 @@ def aggregate_video_features():
     file_exists = ml_dataset_path.exists()
     
     df.to_csv(ml_dataset_path, mode='a', header=not file_exists, index=False)
-    print(f"\n✅ Aggregated video features appended to: {ml_dataset_path.name}")
+    print(f"\n Aggregated video features appended to: {ml_dataset_path.name}")
     print(df.to_string(index=False))
 
 if __name__ == "__main__":
