@@ -76,7 +76,7 @@ export default function UploadVideo() {
           <span className="upload-eyebrow-dot" />
           SPEECH ANALYSIS STUDIO
         </span>
-        <h1>Upload your presentation</h1>
+        <h1>Upload your Video</h1>
         <p>Share a recording of your speech and let SpeakKaro.AI help you improve.</p>
       </div>
 

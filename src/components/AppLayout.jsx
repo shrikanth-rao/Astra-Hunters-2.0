@@ -1,5 +1,4 @@
-
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet , useNavigate} from "react-router-dom";
 import {
   AudioLines,
   LayoutDashboard,
@@ -7,6 +6,7 @@ import {
   ChartNoAxesCombined,
   History,
   Sparkles,
+  LogOut,
 } from "lucide-react";
 
 import ChatbotWidget from "./ChatbotWidget";
@@ -17,10 +17,12 @@ const navItems = [
   { label: "Analyze", path: "/upload", icon: AudioLines },
   { label: "Quick Practice", path: "/practice", icon: Mic },
   { label: "Progress", path: "/detailed-final", icon: ChartNoAxesCombined },
-  { label: "GenerateScript", path: "/GenerateScript", icon: Sparkles },
+  // { label: "GenerateScript", path: "/GenerateScript", icon: Sparkles },
+  { label: "PPT Analyzer", path:"/slide-prep",icon: Sparkles}
 ];
 
 export default function AppLayout() {
+  const navigate=useNavigate();
   return (
     <div className="app-shell">
       <header className="app-navbar">
@@ -57,8 +59,9 @@ export default function AppLayout() {
         <div className="app-navbar-right">
           <span className="app-status-dot" />
           <span className="app-status-text">AI Coach</span>
-          <span className="app-profile-icon">
-            <Sparkles size={18} />
+          <span className="app-profile-icon"  style={{cursor:"pointer"}} onClick={()=>navigate("/")} >
+            <LogOut size={18} />
+            {/* L */}
           </span>
         </div>
       </header>

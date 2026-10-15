@@ -152,10 +152,10 @@ const workflow = [
   { number: '04', title: 'Improve', desc: <>Practice, track progress<br />and become a better speaker.</>, icon: Star, tone: 'gold', to: '/practice' },
 ];
 const builders = [
-  { initial: 'K', name: 'Kiran', role: 'Product & Strategy', color: 'sage' },
-  { initial: 'S', name: 'Shrikanth Rao', role: 'Frontend Developer', color: 'blue' },
-  { initial: 'G', name: 'Gagan Nagesh', role: 'AI/ML Engineer', color: 'teal' },
-  { initial: 'T', name: 'Tharakhesh', role: 'Backend Developer', color: 'violet' },
+  { initial: 'K', name: 'Kiran', role: '-', color: 'sage' },
+  { initial: 'S', name: 'Shrikanth Rao', role: '-', color: 'blue' },
+  { initial: 'G', name: 'Gagan Nagesh', role: '-', color: 'teal' },
+  { initial: 'T', name: 'Tharakhesh', role: '-', color: 'violet' },
 ];
 
 function HeroOrb() {
@@ -191,40 +191,130 @@ function HeroOrb() {
 
 export default function Dashboard() {
   const go = (path) => { window.location.href = path; };
-  return <main className="sk-dashboard">
-    <section className="sk-hero">
-      <div className="sk-hero-copy">
-        <span className="sk-eyebrow">AI POWERED SPEECH COACH</span>
-        <h1>Speak Better.<br /><span>Grow Faster.</span></h1>
-        <p>SpeakKaro.AI helps you analyse your speech, understand<br className="sk-desktop" /> your strengths, and improve with AI-powered insights.</p>
-        <button className="sk-start-btn" onClick={() => go('/upload')}><AudioLines size={21} /> Start Analysis <ArrowRight size={19} /></button>
-        <div className="sk-benefits">
-          <div><span className="sk-benefit-icon"><FileText /></span><span><b>Transcripts</b><small>Word by word</small></span></div>
-          <i />
-          <div><span className="sk-benefit-icon"><Clock3 /></span><span><b>Real-time Metrics</b><small>Pace, pitch, pauses</small></span></div>
-          <i />
-          <div><span className="sk-benefit-icon"><Sparkles /></span><span><b>AI Insights</b><small>Personalised feedback</small></span></div>
-          <i />
-          <div><span className="sk-benefit-icon"><ShieldCheck /></span><span><b>Better You</b><small>Confident speaker</small></span></div>
+  return (
+    <main className="sk-dashboard">
+      <section className="sk-hero">
+        <div className="sk-hero-copy">
+          <span className="sk-eyebrow">AI POWERED SPEECH COACH</span>
+          <h1>
+            Speak Better.
+            <br />
+            <span>Grow Faster.</span>
+          </h1>
+          <p>
+            SpeakKaro.AI helps you analyse your speech, understand
+            <br className="sk-desktop" /> your strengths, and improve with
+            AI-powered insights.
+          </p>
+          <button className="sk-start-btn" onClick={() => go("/upload")}>
+            <AudioLines size={21} /> Start Analysis <ArrowRight size={19} />
+          </button>
+          <div className="sk-benefits">
+            <div>
+              <span className="sk-benefit-icon">
+                <FileText />
+              </span>
+              <span>
+                <b>Transcripts</b>
+                <small>Word by word</small>
+              </span>
+            </div>
+            <i />
+            <div>
+              <span className="sk-benefit-icon">
+                <Clock3 />
+              </span>
+              <span>
+                <b>Real-time Metrics</b>
+                <small>Pace, pitch, pauses</small>
+              </span>
+            </div>
+            <i />
+            <div>
+              <span className="sk-benefit-icon">
+                <Sparkles />
+              </span>
+              <span>
+                <b>AI Insights</b>
+                <small>Personalised feedback</small>
+              </span>
+            </div>
+            <i />
+            <div>
+              <span className="sk-benefit-icon">
+                <ShieldCheck />
+              </span>
+              <span>
+                <b>Better You</b>
+                <small>Confident speaker</small>
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-      <HeroOrb />
-    </section>
+        <HeroOrb />
+      </section>
 
-    <section className="sk-workflow-section">
-      <div className="sk-section-heading"><span className="sk-eyebrow">HOW IT WORKS</span><h2>Your Workflow</h2><p>From upload to insights — in just a few simple steps.</p></div>
-      <div className="sk-workflow-grid">
-        {workflow.map((item) => { const Icon = item.icon; return <button key={item.number} className={`sk-work-card ${item.tone}`} onClick={() => go(item.to)}>
-          <div className="sk-work-card-top"><span className="sk-step-number">{item.number}</span><span className="sk-work-icon"><Icon size={25} /></span></div>
-          <h3>{item.title}</h3><p>{item.desc}</p><ArrowRight className="sk-card-arrow" size={19} />
-        </button>; })}
-      </div>
-    </section>
+      <section className="sk-workflow-section">
+        <div className="sk-section-heading">
+          <span className="sk-eyebrow">HOW IT WORKS</span>
+          <h2>Your Workflow</h2>
+          <p>From upload to insights — in just a few simple steps.</p>
+        </div>
+        <div className="sk-workflow-grid">
+          {workflow.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.number}
+                className={`sk-work-card ${item.tone}`}
+                onClick={() => go(item.to)}
+              >
+                <div className="sk-work-card-top">
+                  <span className="sk-step-number">{item.number}</span>
+                  <span className="sk-work-icon">
+                    <Icon size={25} />
+                  </span>
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+                <ArrowRight className="sk-card-arrow" size={19} />
+              </button>
+            );
+          })}
+        </div>
+      </section>
 
-    <section className="sk-builders">
-      <div className="sk-builders-intro"><span className="sk-eyebrow">BUILT WITH PASSION</span><h2>Meet the Builders</h2><p>A collaborative AI project focused on making public speaking practice more measurable, accessible and actionable.</p></div>
-      <div className="sk-builder-grid">{builders.map((person) => <div className="sk-builder-card" key={person.name}><span className={`sk-builder-avatar ${person.color}`}>{person.initial}</span><b>{person.name}</b><small>{person.role}</small></div>)}</div>
-    </section>
-    <footer className="sk-footer"><b><AudioLines size={22} /> SpeakKaro<span>.AI</span></b><small>Speak. Analyse. Grow.</small><div /><small>Built with care by Kiran, Shrikanth Rao, Gagan Nagesh &amp; Tharakhesh</small></footer>
-  </main>;
+      <section className="sk-builders">
+        <div className="sk-builders-intro">
+          <span className="sk-eyebrow">BUILT WITH PASSION</span>
+          <h2>Meet the Builders</h2>
+          <p>
+            A collaborative AI project focused on making public speaking
+            practice more measurable, accessible and actionable.
+          </p>
+        </div>
+        <div className="sk-builder-grid">
+          {builders.map((person) => (
+            <div className="sk-builder-card" key={person.name}>
+              <span className={`sk-builder-avatar ${person.color}`}>
+                {person.initial}
+              </span>
+              <b>{person.name}</b>
+              <small>{person.role}</small>
+            </div>
+          ))}
+        </div>
+      </section>
+      <footer className="sk-footer">
+        <b>
+          <AudioLines size={22} /> SpeakKaro<span>.AI</span>
+        </b>
+        <small>Speak. Analyse. Grow.</small>
+        <div />
+        <small>
+          Built with care by Kiran, Shrikanth Rao, Gagan Nagesh &amp; Tharakhesh
+        </small>
+      </footer>
+    </main>
+  );
 }

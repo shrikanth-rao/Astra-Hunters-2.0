@@ -9,7 +9,7 @@ import AnalysisReport from "./pages/AnalysisReport.jsx";
 import DetailedFinal from "./pages/DetailedFinal.jsx";
 import Practice from "./pages/Practice.jsx";
 import GenerateScript from "./pages/GenerateScript.jsx";
-
+import SlidePrep from "./pages/SlidePrep";
 import AppLayout from "./components/AppLayout.jsx";
 import { DataProvider } from "./context/DataContext";
 export default function App() {
@@ -29,6 +29,7 @@ export default function App() {
           <Route path="/detailed-final" element={<Analyzing />} />
           <Route path="/practice" element={<Practice />} />
           <Route path="/GenerateScript" element={<GenerateScript />} />
+          <Route path="/slide-prep" element={<SlidePrep />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" replace />} />

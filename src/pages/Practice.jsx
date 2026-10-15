@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./Practice.css";
 
-const SpeechRecognitionAPI =
-  window.SpeechRecognition || window.webkitSpeechRecognition;
 
 function estimatePitch(buffer, sampleRate) {
   // Lightweight autocorrelation pitch estimate. Returns Hz, or null for silence/noisy frames.
@@ -59,9 +57,12 @@ export default function Practice() {
   const [pauseCount, setPauseCount] = useState(0);
   const [error, setError] = useState("");
   const [summary, setSummary] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   const activeRef = useRef(false);
   const recognitionRef = useRef(null);
+  const recognitionRetryRef = useRef(null);
+  const recognitionSupportedRef = useRef(false);
   const streamRef = useRef(null);
   const audioContextRef = useRef(null);
   const analyserRef = useRef(null);
@@ -73,10 +74,15 @@ export default function Practice() {
   const finalTranscriptRef = useRef("");
   const interimTranscriptRef = useRef("");
   const pauseCountRef = useRef(0);
+  const latestPitchRef = useRef(null);
+  const pitchIntervalRef = useRef(null);
+  const pausedRef = useRef(false);
+  const elapsedBeforePauseRef = useRef(0);
 
   useEffect(() => {
     return () => {
       activeRef.current = false;
+      if (recognitionRetryRef.current) clearTimeout(recognitionRetryRef.current);
       if (recognitionRef.current) {
         recognitionRef.current.onend = null;
         try {
@@ -84,6 +90,7 @@ export default function Practice() {
         } catch {}
       }
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      if (pitchIntervalRef.current) clearInterval(pitchIntervalRef.current);
       if (streamRef.current) {
         streamRef.current.getTracks().forEach((track) => track.stop());
       }
@@ -94,72 +101,97 @@ export default function Practice() {
   }, []);
 
   function setupSpeechRecognition() {
+    const SpeechRecognitionAPI =
+      typeof window !== "undefined"
+        ? window.SpeechRecognition || window.webkitSpeechRecognition
+        : null;
+
     if (!SpeechRecognitionAPI) {
-      throw new Error(
-        "Live speech-to-text is not supported by this browser. Try Google Chrome."
+      setError(
+        "Live transcription is not available in this browser. Open this page in the latest Google Chrome. Pitch and microphone features can still work."
       );
+      return;
     }
 
+    recognitionSupportedRef.current = true;
     const recognition = new SpeechRecognitionAPI();
     recognition.continuous = true;
     recognition.interimResults = true;
+    recognition.maxAlternatives = 1;
+    // en-IN is not enabled reliably on every browser speech service; en-US is a
+    // more widely supported fallback if the selected locale returns no results.
     recognition.lang = "en-IN";
 
+    recognition.onstart = () => {
+      setError("");
+    };
+
     recognition.onresult = (event) => {
-      let finalText = "";
-      let interimText = "";
-
-      for (let i = 0; i < event.results.length; i++) {
+      // Append only newly-finalized results. Keep interim words visible immediately.
+      // Rebuilding all results can lose text when Chrome restarts its recognition service.
+      let newFinalText = "";
+      let currentInterimText = "";
+      for (let i = event.resultIndex; i < event.results.length; i++) {
         const result = event.results[i];
-        const text = result[0]?.transcript || "";
-        if (result.isFinal) finalText += `${text} `;
-        else interimText += text;
+        const spokenText = result?.[0]?.transcript?.trim();
+        if (!spokenText) continue;
+        if (result.isFinal) newFinalText += `${spokenText} `;
+        else currentInterimText += `${spokenText} `;
       }
 
-      // The browser returns the full result list on updates. Rebuild the transcript
-      // from that list to avoid duplicating recognized words.
-      const allFinal = [];
-      let allInterim = [];
-      for (let i = 0; i < event.results.length; i++) {
-        const result = event.results[i];
-        const text = result[0]?.transcript || "";
-        if (result.isFinal) allFinal.push(text.trim());
-        else allInterim.push(text.trim());
+      if (newFinalText.trim()) {
+        finalTranscriptRef.current = `${finalTranscriptRef.current} ${newFinalText}`
+          .replace(/\s+/g, " ")
+          .trim();
       }
-
-      finalTranscriptRef.current = allFinal.filter(Boolean).join(" ").trim();
-      interimTranscriptRef.current = allInterim.filter(Boolean).join(" ").trim();
+      interimTranscriptRef.current = currentInterimText.trim();
       setTranscript(finalTranscriptRef.current);
       setInterimTranscript(interimTranscriptRef.current);
     };
 
     recognition.onerror = (event) => {
-      if (event.error !== "no-speech" && event.error !== "aborted") {
-        setError(
-          event.error === "not-allowed"
-            ? "Microphone permission was denied. Allow microphone access in your browser."
-            : `Speech recognition error: ${event.error}`
-        );
+      const code = event?.error || "unknown";
+      if (code === "not-allowed" || code === "service-not-allowed") {
+        setError("Chrome blocked speech recognition. Click the site icon near the address bar, allow microphone access, then reload the page.");
+      } else if (code === "network") {
+        setError("Speech-to-text needs an internet connection in Chrome. Check your connection and start a new practice session.");
+      } else if (code === "audio-capture") {
+        setError("Chrome cannot access the microphone for speech recognition. Check your microphone and close other apps using it.");
+      } else if (code !== "no-speech" && code !== "aborted") {
+        setError(`Speech-to-text error (${code}). Try refreshing the page in Google Chrome.`);
       }
     };
 
     recognition.onend = () => {
-      if (activeRef.current) {
+      if (!activeRef.current || pausedRef.current) return;
+      // Chrome can end a continuous recognition session after silence. Restart it
+      // after a short delay instead of immediately (immediate restarts can be ignored).
+      if (recognitionRetryRef.current) clearTimeout(recognitionRetryRef.current);
+      recognitionRetryRef.current = setTimeout(() => {
+        if (!activeRef.current || pausedRef.current) return;
         try {
           recognition.start();
         } catch {
-          // The browser may still be transitioning between recognition sessions.
+          // If Chrome is still transitioning, onend will schedule the next retry.
         }
-      }
+      }, 300);
     };
 
     recognitionRef.current = recognition;
-    recognition.start();
+    try {
+      recognition.start();
+    } catch (err) {
+      setError(`Could not start speech-to-text (${err?.message || "browser blocked it"}). Try refreshing in Google Chrome.`);
+    }
   }
 
   async function startPractice() {
     setError("");
     setSummary(null);
+    setIsPaused(false);
+    pausedRef.current = false;
+    elapsedBeforePauseRef.current = 0;
+    latestPitchRef.current = null;
     setTranscript("");
     setInterimTranscript("");
     setElapsed(0);
@@ -177,6 +209,12 @@ export default function Practice() {
     pauseShownRef.current = false;
 
     try {
+      if (recognitionRetryRef.current) clearTimeout(recognitionRetryRef.current);
+      if (recognitionRef.current) {
+        recognitionRef.current.onend = null;
+        try { recognitionRef.current.abort(); } catch {}
+        recognitionRef.current = null;
+      }
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
 
@@ -200,7 +238,7 @@ export default function Practice() {
       const buffer = new Float32Array(analyser.fftSize);
 
       const updateAudio = () => {
-        if (!activeRef.current || !analyserRef.current) return;
+        if (!activeRef.current || !analyserRef.current || pausedRef.current) return;
 
         analyserRef.current.getFloatTimeDomainData(buffer);
 
@@ -236,26 +274,39 @@ export default function Practice() {
         }
 
         if (pitch !== null && rms >= 0.012) {
-          pitchSamplesRef.current.push(pitch);
+          latestPitchRef.current = pitch;
           setCurrentPitch(pitch);
-          setPitchPoints((previous) => [
-            ...previous.slice(-59),
-            pitch,
-          ]);
-          const samples = pitchSamplesRef.current;
-          setAveragePitch(
-            Math.round(samples.reduce((total, value) => total + value, 0) / samples.length)
-          );
         } else {
+          latestPitchRef.current = null;
           setCurrentPitch(null);
-          setPitchPoints((previous) => [...previous.slice(-59), null]);
         }
 
-        setElapsed(Math.floor((Date.now() - startedAtRef.current) / 1000));
+        setElapsed(elapsedBeforePauseRef.current + Math.floor((Date.now() - startedAtRef.current) / 1000));
         animationRef.current = requestAnimationFrame(updateAudio);
       };
 
       animationRef.current = requestAnimationFrame(updateAudio);
+      // Store one pitch sample every two seconds instead of plotting every audio frame.
+      let pitchWindow = [];
+      pitchIntervalRef.current = setInterval(() => {
+        if (!activeRef.current || pausedRef.current) return;
+        const voicedWindow = pitchWindow.filter((value) => Number.isFinite(value));
+        const sample = voicedWindow.length
+          ? Math.round(voicedWindow.reduce((sum, value) => sum + value, 0) / voicedWindow.length)
+          : null;
+        pitchSamplesRef.current.push(sample);
+        setPitchPoints([...pitchSamplesRef.current]);
+        const allVoiced = pitchSamplesRef.current.filter((value) => Number.isFinite(value));
+        setAveragePitch(allVoiced.length ? Math.round(allVoiced.reduce((sum, value) => sum + value, 0) / allVoiced.length) : null);
+        pitchWindow = [];
+      }, 2000);
+      // The live analyser feeds the 2-second pitch window.
+      const samplePitch = () => {
+        if (!activeRef.current || pausedRef.current || !analyserRef.current) return;
+        if (latestPitchRef.current !== null) pitchWindow.push(latestPitchRef.current);
+        requestAnimationFrame(samplePitch);
+      };
+      requestAnimationFrame(samplePitch);
     } catch (err) {
       activeRef.current = false;
       if (streamRef.current) {
@@ -279,10 +330,14 @@ export default function Practice() {
     if (!activeRef.current) return;
 
     activeRef.current = false;
+    pausedRef.current = false;
+    setIsPaused(false);
     setStatus("finished");
 
     if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    if (pitchIntervalRef.current) clearInterval(pitchIntervalRef.current);
 
+    if (recognitionRetryRef.current) clearTimeout(recognitionRetryRef.current);
     if (recognitionRef.current) {
       recognitionRef.current.onend = null;
       try {
@@ -300,6 +355,12 @@ export default function Practice() {
       audioContextRef.current = null;
     }
 
+    // Capture the last available pitch as the final plotted point when the session ends.
+    if (latestPitchRef.current !== null && pitchSamplesRef.current.length === 0) {
+      pitchSamplesRef.current.push(latestPitchRef.current);
+      setPitchPoints([...pitchSamplesRef.current]);
+    }
+
     const fullTranscript = [
       finalTranscriptRef.current,
       interimTranscriptRef.current,
@@ -308,17 +369,15 @@ export default function Practice() {
       .join(" ")
       .trim();
 
-    const durationSeconds = Math.max(
-      1,
-      Math.floor((Date.now() - startedAtRef.current) / 1000)
-    );
+    const durationSeconds = Math.max(1, elapsedBeforePauseRef.current + (startedAtRef.current ? Math.floor((Date.now() - startedAtRef.current) / 1000) : 0));
     const wordCount = fullTranscript
       ? fullTranscript.split(/\s+/).filter(Boolean).length
       : 0;
     const wordsPerMinute = Math.round((wordCount / durationSeconds) * 60);
     const samples = pitchSamplesRef.current;
-    const meanPitch = samples.length
-      ? Math.round(samples.reduce((total, value) => total + value, 0) / samples.length)
+    const voicedSamples = samples.filter((value) => Number.isFinite(value));
+    const meanPitch = voicedSamples.length
+      ? Math.round(voicedSamples.reduce((total, value) => total + value, 0) / voicedSamples.length)
       : null;
 
     setTranscript(fullTranscript);
@@ -328,7 +387,6 @@ export default function Practice() {
     setSummary({
       transcript: fullTranscript,
       durationSeconds,
-      wordCount,
       wordsPerMinute,
       averagePitch: meanPitch,
       pauseCount: pauseCountRef.current,
@@ -340,16 +398,20 @@ export default function Practice() {
     .filter(Boolean)
     .join(" ");
 
-  const pitchPolyline = pitchPoints
-    .map((pitch, index) => {
-      const x = pitchPoints.length <= 1
-        ? 0
-        : (index / (pitchPoints.length - 1)) * 600;
-      const boundedPitch = pitch == null ? 210 : Math.max(70, Math.min(350, pitch));
-      const y = 190 - ((boundedPitch - 70) / (350 - 70)) * 160;
-      return `${x},${y}`;
-    })
-    .join(" ");
+  const chartWidth = Math.max(700, pitchPoints.length * 86 + 100);
+  const pitchPolyline = pitchPoints.map((pitch, index) => {
+    const x = 36 + index * 86;
+    const boundedPitch = pitch == null ? null : Math.max(70, Math.min(350, pitch));
+    const y = boundedPitch == null ? null : 190 - ((boundedPitch - 70) / (350 - 70)) * 160;
+    return { x, y, pitch, time: (index + 1) * 2 };
+  });
+  const pitchSegments = [];
+  let currentSegment = [];
+  pitchPolyline.forEach((point) => {
+    if (point.y == null) { if (currentSegment.length) pitchSegments.push(currentSegment); currentSegment = []; }
+    else currentSegment.push(`${point.x},${point.y}`);
+  });
+  if (currentSegment.length) pitchSegments.push(currentSegment);
 
   return (
     <main className="quick-practice-page">
@@ -363,46 +425,6 @@ export default function Practice() {
       </header>
 
       {error && <div className="practice-error" role="alert">{error}</div>}
-
-      <section className="practice-control-panel">
-        <div className={`practice-status ${status}`}>
-          <span className="practice-status-dot" />
-          {status === "recording"
-            ? "Recording"
-            : status === "finished"
-              ? "Session ended"
-              : "Ready to practise"}
-        </div>
-
-        <div className="practice-timer">{formatTime(elapsed)}</div>
-
-        <div className="practice-controls">
-          {status !== "recording" ? (
-            <button
-              type="button"
-              className="practice-start-button"
-              onClick={startPractice}
-            >
-              <span aria-hidden="true">●</span>
-              {status === "finished" ? "Start new practice" : "Start practice"}
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="practice-end-button"
-              onClick={endPractice}
-            >
-              End practice
-            </button>
-          )}
-        </div>
-
-        {status === "recording" && (
-          <p className="practice-hint">
-            Speak naturally. Your transcript and pitch update while you talk.
-          </p>
-        )}
-      </section>
 
       <section className="practice-grid">
         <article className="practice-panel transcript-panel">
@@ -468,8 +490,8 @@ export default function Practice() {
       <section className="practice-panel practice-pitch-panel">
         <div className="practice-panel-heading">
           <div>
-            <h2>Live pitch graph</h2>
-            <p>Estimated fundamental frequency over time</p>
+            <h2>Pitch timeline</h2>
+            <p>A new pitch sample is plotted every 2 seconds. Scroll to review the entire session.</p>
           </div>
           <div className="practice-pitch-value">
             <strong>{currentPitch ?? "--"}</strong>
@@ -483,24 +505,33 @@ export default function Practice() {
             <span>210 Hz</span>
             <span>70 Hz</span>
           </div>
+          <div className="practice-pitch-scroll">
           <svg
-            viewBox="0 0 600 200"
-            preserveAspectRatio="none"
+            viewBox={`0 0 ${chartWidth} 200`}
+            style={{ width: `${chartWidth}px`, minWidth: `${chartWidth}px` }}
             role="img"
-            aria-label="Estimated pitch graph"
+            aria-label="Pitch samples, one point every two seconds"
           >
-            <line x1="0" y1="30" x2="600" y2="30" />
-            <line x1="0" y1="110" x2="600" y2="110" />
-            <line x1="0" y1="190" x2="600" y2="190" />
-            {pitchPoints.length > 1 && (
-              <polyline points={pitchPolyline} />
-            )}
+            <line x1="0" y1="30" x2={chartWidth} y2="30" />
+            <line x1="0" y1="110" x2={chartWidth} y2="110" />
+            <line x1="0" y1="190" x2={chartWidth} y2="190" />
+            {pitchSegments.map((segment, index) => <polyline key={index} points={segment.join(" ")} />)}
+            {pitchPolyline.map((point, index) => (
+              <g key={index}>
+                <line x1={point.x} y1="25" x2={point.x} y2="190" className="pitch-sample-guide" />
+                {point.y !== null ? <circle cx={point.x} cy={point.y} r="5" className="pitch-sample-dot" /> : <circle cx={point.x} cy="190" r="4" className="pitch-silence-dot" />}
+                <text x={point.x} y="199" className="pitch-time-label">{formatTime(point.time)}</text>
+              </g>
+            ))}
           </svg>
+          </div>
         </div>
         <div className="practice-chart-caption">
           {status === "recording"
-            ? "Graph updates continuously while your voice is detected."
-            : "Pitch values are estimated from voiced audio frames."}
+            ? `Session timeline · ${pitchPoints.length} samples captured · one sample every 2 seconds`
+            : status === "finished"
+              ? `Complete session timeline · ${pitchPoints.length} samples captured`
+              : "Start speaking to build your pitch timeline."}
         </div>
       </section>
 
@@ -537,10 +568,6 @@ export default function Practice() {
               <strong>{formatTime(summary.durationSeconds)}</strong>
             </article>
             <article>
-              <span>Words recognised</span>
-              <strong>{summary.wordCount}</strong>
-            </article>
-            <article>
               <span>Speaking pace</span>
               <strong>{summary.wordsPerMinute} WPM</strong>
             </article>
@@ -572,6 +599,32 @@ export default function Practice() {
           </p>
         </section>
       )}
+
+      <footer className="practice-fixed-dock">
+        <div className="practice-dock-timer"><span className={status === "recording" && !isPaused ? "dock-dot live" : "dock-dot"} />{formatTime(elapsed)}<small>{isPaused ? "PAUSED" : status === "recording" ? "RECORDING" : status === "finished" ? "COMPLETED" : "SESSION TIME"}</small></div>
+        <div className="practice-dock-buttons">
+          {status !== "recording" && status !== "finished" && <button className="practice-start-button" onClick={startPractice}>● Start Practice</button>}
+          {status === "recording" && !isPaused && <button className="practice-pause-button" onClick={() => {
+            pausedRef.current = true; setIsPaused(true); setStatus("paused");
+            elapsedBeforePauseRef.current += Math.floor((Date.now() - startedAtRef.current) / 1000);
+            startedAtRef.current = 0;
+            if (animationRef.current) cancelAnimationFrame(animationRef.current);
+            if (pitchIntervalRef.current) clearInterval(pitchIntervalRef.current);
+            setPauseMessage("");
+            if (recognitionRef.current) { recognitionRef.current.onend = null; try { recognitionRef.current.stop(); } catch {} }
+          }}>Ⅱ Pause</button>}
+          {status === "paused" && <button className="practice-start-button" onClick={() => {
+            pausedRef.current = false; setIsPaused(false); setStatus("recording"); activeRef.current = true; startedAtRef.current = Date.now();
+            if (recognitionRef.current) { recognitionRef.current.onend = () => { if (activeRef.current && !pausedRef.current) { try { recognitionRef.current.start(); } catch {} } }; try { recognitionRef.current.start(); } catch {} }
+            const analyser = analyserRef.current; const ctx = audioContextRef.current;
+            if (analyser && ctx) { const buffer = new Float32Array(analyser.fftSize); const update = () => { if (!activeRef.current || pausedRef.current || !analyserRef.current) return; analyser.getFloatTimeDomainData(buffer); const pitch = estimatePitch(buffer, ctx.sampleRate); latestPitchRef.current = pitch; setCurrentPitch(pitch); animationRef.current = requestAnimationFrame(update); }; animationRef.current = requestAnimationFrame(update); }
+            pitchIntervalRef.current = setInterval(() => { const pitch = latestPitchRef.current; pitchSamplesRef.current.push(pitch); setPitchPoints((previous) => [...previous, pitch]); }, 2000);
+          }}>▶ Resume</button>}
+          {(status === "recording" || status === "paused") && <button className="practice-end-button" onClick={endPractice}>■ End Practice</button>}
+          {status === "finished" && <button className="practice-start-button" onClick={startPractice}>● Start New Practice</button>}
+        </div>
+        <span className="practice-dock-hint">{isPaused ? "Take a breath. Resume when ready." : status === "recording" ? "Speak naturally. Pause whenever you need." : "Your practice is not saved."}</span>
+      </footer>
     </main>
   );
 }
