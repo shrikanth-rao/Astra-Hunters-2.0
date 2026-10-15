@@ -3,8 +3,7 @@
 __pycache__/
 *.pyc
 output/
-data/raw/*
-data/processed/*
+
 
 !data/raw/.gitkeep
 !data/processed/.gitkeep
