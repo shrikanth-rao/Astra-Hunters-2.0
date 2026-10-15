@@ -53,6 +53,10 @@ def main():
         {
             "script": "src/audio/flatten_audio.py",
             "desc": "Step 5: Flatten Audio Features for ML"
+        },
+        {
+            "script": "src/predict_scores.py",
+            "desc": "Step 6: AI Grading & LLM Coaching Generation"
         }
     ]
     
