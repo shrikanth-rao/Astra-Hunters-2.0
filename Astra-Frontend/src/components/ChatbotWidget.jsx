@@ -1,127 +1,140 @@
-
-// import { useState } from "react";
-// import { Bot, X, Send, Sparkles } from "lucide-react";
-// import "./chatbot.css";
-
-// export default function ChatbotWidget() {
-//   const [open, setOpen] = useState(false);
-//   const [input, setInput] = useState("");
-//   const [messages, setMessages] = useState([
-//     {
-//       role: "assistant",
-//       text: "Hi! I'm your SpeakKaro.AI assistant. Ask me about speech analysis, speaking pace, filler words or improving your presentation.",
-//     },
-//   ]);
-
-//   function sendMessage(event) {
-//     event.preventDefault();
-
-//     const question = input.trim();
-//     if (!question) return;
-
-//     setMessages((previous) => [
-//       ...previous,
-//       { role: "user", text: question },
-//       {
-//         role: "assistant",
-//         text: "I'm currently in demo mode. Once connected to an AI service, I'll be able to answer your question about public speaking in more detail.",
-//       },
-//     ]);
-
-//     setInput("");
-//   }
-
-//   return (
-//     <div className="speech-assistant">
-//       {open && (
-//         <section
-//           className="assistant-panel"
-//           aria-label="SpeakKaro AI chat"
-//         >
-//           <header className="assistant-header">
-//             <div className="assistant-heading-icon">
-//               <Sparkles size={19} />
-//             </div>
-//             <div className="assistant-heading-text">
-//               <strong>SpeakKaro Assistant</strong>
-//               <span>Speech coaching companion</span>
-//             </div>
-//             <button
-//               className="assistant-close"
-//               onClick={() => setOpen(false)}
-//               aria-label="Close chat"
-//             >
-//               <X size={19} />
-//             </button>
-//           </header>
-
-//           <div className="assistant-messages" aria-live="polite">
-//             {messages.map((message, index) => (
-//               <div
-//                 key={index}
-//                 className={`assistant-message ${message.role}`}
-//               >
-//                 {message.text}
-//               </div>
-//             ))}
-//           </div>
-
-//           <form className="assistant-input-row" onSubmit={sendMessage}>
-//             <input
-//               value={input}
-//               onChange={(event) => setInput(event.target.value)}
-//               placeholder="Ask about your speech..."
-//               aria-label="Your message"
-//             />
-//             <button type="submit" aria-label="Send message">
-//               <Send size={17} />
-//             </button>
-//           </form>
-//         </section>
-//       )}
-
-//       <button
-//         className={`assistant-orb ${open ? "orb-active" : ""}`}
-//         onClick={() => setOpen((previous) => !previous)}
-//         aria-label={open ? "Close AI assistant" : "Open AI assistant"}
-//         aria-expanded={open}
-//       >
-//         <span className="orb-halo" />
-//         <span className="orb-shine" />
-//         <span className="orb-inner">
-//           {open ? <X size={29} /> : <Bot size={31} />}
-//         </span>
-//         {!open && <span className="orb-sparkle"><Sparkles size={14} /></span>}
-//       </button>
-//     </div>
-//   );
-// }
-
-
-import React, { useState } from 'react';
-import { X, Send, AudioLines, Sparkles } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, AudioLines, Sparkles } from 'lucide-react';
 import './chatbot.css';
+
+const QA_OPTIONS = [
+  {
+    q: "How does the AI grade my speech?",
+    a: "Our ML pipeline analyzes your video and audio locally. It calculates Delivery, Vocal Expression, and Body Language scores based on metrics like speaking pace (WPM), pitch variance, posture, and filler words."
+  },
+  {
+    q: "How do you evaluate my body language?",
+    a: "We use advanced vision models to track your posture and gestures frame-by-frame. We look for open body language, stability, and natural movement rather than stiffness, slouching, or excessive pacing."
+  },
+  {
+    q: "What does 'Pitch Variance' mean?",
+    a: "Pitch variance measures the expressiveness in your voice. A higher variance means you are using vocal variety to keep the audience engaged, while a low score might indicate a monotone delivery."
+  },
+  {
+    q: "Does the AI analyze the actual words I say?",
+    a: "Yes! We transcribe your speech and pass your performance metrics to an advanced LLM (Groq). It evaluates your content and generates a personalized coaching report with specific, actionable feedback."
+  },
+  {
+    q: "Can the system detect my accent?",
+    a: "Yes, our audio pipeline includes an accent classification model. However, your delivery score is based on clarity, pacing, and expression—not on having a specific accent."
+  },
+  {
+    q: "How can I reduce filler words?",
+    a: "Awareness is step one! Our AI detects words like 'um' and 'uh'. To reduce them, practice embracing silence. A short pause is much more powerful than filling the space with sound."
+  },
+  {
+    q: "How long does the analysis take?",
+    a: "Processing a video takes about 60 seconds depending on the file size and your computer's hardware. We extract audio, track video frames, and run the data through our machine learning models all locally."
+  }
+];
 
 export default function ChatbotWidget() {
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([{ role: 'bot', text: 'Hi! I’m your SpeakKaro AI assistant. How can I help you today?' }]);
-  const send = (e) => {
-    e?.preventDefault();
-    const value = message.trim();
-    if (!value) return;
-    setMessages((prev) => [...prev, { role: 'user', text: value }, { role: 'bot', text: 'I can help you prepare for a speech, understand speaking metrics, or plan a practice session. Live AI replies can be connected to your backend next.' }]);
-    setMessage('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [messages, setMessages] = useState([
+    { role: 'bot', text: 'Hi! I’m your SpeakKaro AI assistant. Choose a question below to learn more about how we analyze your presentations.' }
+  ]);
+  
+  const messagesEndRef = useRef(null);
+
+  // Auto-scroll to bottom whenever messages or typing state changes
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, isTyping]);
+
+  const handleOptionClick = (question, answer) => {
+    // 1. Immediately append the user's question
+    setMessages((prev) => [...prev, { role: 'user', text: question }]);
+    
+    // 2. Trigger the typing indicator and disable buttons
+    setIsTyping(true);
+
+    // 3. Wait 1.5 seconds, then remove typing indicator and show the answer
+    setTimeout(() => {
+      setMessages((prev) => [...prev, { role: 'bot', text: answer }]);
+      setIsTyping(false);
+    }, 1500); 
   };
-  return <div className="sk-chatbot-root">
-    {open && <section className="sk-chat-panel" aria-label="SpeakKaro AI chat">
-      <header className="sk-chat-head"><span className="sk-chat-mini-orb"><AudioLines size={20}/></span><div><b>SpeakKaro AI</b><small><i/> Your speaking companion</small></div><button onClick={() => setOpen(false)} aria-label="Close chat"><X size={19}/></button></header>
-      <div className="sk-chat-messages">{messages.map((item, i) => <div className={`sk-chat-message ${item.role}`} key={i}>{item.text}</div>)}</div>
-      <form className="sk-chat-form" onSubmit={send}><input value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Ask me anything..." aria-label="Message"/><button aria-label="Send message" type="submit"><Send size={17}/></button></form>
-    </section>}
-    {!open && <div className="sk-chat-hint">How can I help you today?</div>}
-    <button className={`sk-chat-orb-button ${open ? 'opened' : ''}`} onClick={() => setOpen((v) => !v)} aria-label={open ? 'Close AI assistant' : 'Open AI assistant'}>
-      <span className="sk-chat-orb-halo"/><span className="sk-chat-orb-body"><span className="sk-chat-orb-glass"/><span className="sk-chat-eye left"/><span className="sk-chat-eye right"/><span className="sk-chat-smile"/><span className="sk-chat-ear left"/><span className="sk-chat-ear right"/><span className="sk-chat-orb-shine"/><span className="sk-chat-spark"><Sparkles size={12}/></span></span>
-    </button>
-  </div>;
+
+  return (
+    <div className="sk-chatbot-root">
+      {open && (
+        <section className="sk-chat-panel" aria-label="SpeakKaro AI chat">
+          <header className="sk-chat-head">
+            <span className="sk-chat-mini-orb"><AudioLines size={20}/></span>
+            <div>
+              <b>SpeakKaro AI</b>
+              <small><i/> Your speaking companion</small>
+            </div>
+            <button onClick={() => setOpen(false)} aria-label="Close chat">
+              <X size={19}/>
+            </button>
+          </header>
+          
+          <div className="sk-chat-messages">
+            {messages.map((item, i) => (
+              <div className={`sk-chat-message ${item.role}`} key={i}>
+                {item.text}
+              </div>
+            ))}
+            
+            {/* Conditional render for the animated typing indicator */}
+            {isTyping && (
+              <div className="sk-chat-message bot typing-indicator">
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+              </div>
+            )}
+            
+            <div ref={messagesEndRef} />
+          </div>
+          
+          <div className="sk-chat-options">
+            {QA_OPTIONS.map((option, i) => (
+              <button 
+                key={i} 
+                className="sk-chat-option-btn"
+                onClick={() => handleOptionClick(option.q, option.a)}
+                disabled={isTyping} // Prevent spamming while bot is typing
+                style={{ opacity: isTyping ? 0.6 : 1, cursor: isTyping ? 'not-allowed' : 'pointer' }}
+              >
+                {option.q}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+      
+      {!open && <div className="sk-chat-hint">How can I help you today?</div>}
+      
+      {/* The new wrapper div that handles the floating animation safely */}
+      <div className={`sk-orb-floater ${open ? 'paused' : ''}`}>
+        <button 
+          className={`sk-chat-orb-button ${open ? 'opened' : ''}`} 
+          onClick={() => setOpen((v) => !v)} 
+          aria-label={open ? 'Close AI assistant' : 'Open AI assistant'}
+        >
+          <span className="sk-chat-orb-halo"/>
+          <span className="sk-chat-orb-body">
+            <span className="sk-chat-orb-glass"/>
+            <span className="sk-chat-eye left"/>
+            <span className="sk-chat-eye right"/>
+            <span className="sk-chat-smile"/>
+            <span className="sk-chat-ear left"/>
+            <span className="sk-chat-ear right"/>
+            <span className="sk-chat-orb-shine"/>
+            <span className="sk-chat-spark"><Sparkles size={12}/></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  );
 }
