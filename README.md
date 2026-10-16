@@ -121,4 +121,4 @@ Astra-Hunters-2.0/
 Contributions, issues, and feature requests are welcome! If you would like to improve the dataset, refine the Random Forest model, or add new tracking features (like eye-contact detection), feel free to fork the repository and submit a pull request.
 
 ## 📝 License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 
