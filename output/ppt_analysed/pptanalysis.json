@@ -1,229 +1,248 @@
 {
-  "file_name": "Module 4- Tenses [Recovered].pptx",
-  "slide_count": 9,
-  "total_word_count": 173,
-  "total_character_count": 1086,
-  "average_words_per_slide": 19.22,
-  "total_images": 1,
+  "file_name": "SCIENTIFIC FOUNDATION OF HEALTH.pptx",
+  "slide_count": 22,
+  "total_word_count": 19,
+  "total_character_count": 132,
+  "average_words_per_slide": 0.86,
+  "total_images": 20,
   "total_charts": 0,
   "total_tables": 0,
-  "average_basic_structure_score": 97.6,
-  "untitled_slides": 1,
+  "average_basic_structure_score": 84.3,
+  "untitled_slides": 20,
   "dense_slides": 0,
-  "low_text_slides": 2,
+  "low_text_slides": 21,
   "slides_below_60": 0,
   "overall_findings": [
-    "1 slide(s) have no detectable title.",
-    "2 slide(s) have fewer than 5 words."
+    "20 slide(s) have no detectable title.",
+    "21 slide(s) have fewer than 5 words."
   ],
   "score_explanation": "Rule-based heuristic based on detectable titles, text density, explicitly sized small fonts, sentence length, and potentially empty slides. This is not an AI assessment of visual design, factual accuracy, or persuasiveness.",
   "slides": [
     {
       "slide_number": 1,
-      "title": "Tenses",
-      "word_count": 1,
-      "character_count": 6,
+      "title": "SCIENTIFIC FOUNDATION OF HEALTH",
+      "word_count": 17,
+      "character_count": 122,
       "sentence_count": 1,
-      "average_words_per_sentence": 1.0,
+      "average_words_per_sentence": 17.0,
       "image_count": 0,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 2,
+      "text_box_count": 3,
+      "other_shape_count": 0,
+      "font_sizes_pt": [
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0
+      ],
+      "minimum_font_size_pt": 18.0,
+      "maximum_font_size_pt": 18.0,
+      "basic_structure_score": 100,
+      "findings": [
+        "No issues detected by the basic automated checks."
+      ],
+      "suggestions": [],
+      "extracted_text": "SCIENTIFIC FOUNDATION OF HEALTH\nAVOIDING RISKS AND HARMFUL HABITS\nDONE BY :\nSHRIKANT\nSAURABH\nSANATH\nSAYII GAGAN\nAQEELUDDIN"
+    },
+    {
+      "slide_number": 2,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
       "other_shape_count": 0,
       "font_sizes_pt": [],
       "minimum_font_size_pt": null,
       "maximum_font_size_pt": null,
-      "basic_structure_score": 95,
+      "basic_structure_score": 83,
       "findings": [
+        "No detectable slide title.",
         "Very little extractable text.",
         "No explicit font sizes could be extracted."
       ],
       "suggestions": [
-        "Check whether the slide communicates its purpose. A visual-only slide may be intentional."
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
       ],
-      "extracted_text": "Tenses"
-    },
-    {
-      "slide_number": 2,
-      "title": "Read the following sentences",
-      "word_count": 33,
-      "character_count": 201,
-      "sentence_count": 6,
-      "average_words_per_sentence": 5.5,
-      "image_count": 0,
-      "chart_count": 0,
-      "table_count": 0,
-      "text_box_count": 2,
-      "other_shape_count": 0,
-      "font_sizes_pt": [],
-      "minimum_font_size_pt": null,
-      "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
-      "findings": [
-        "No explicit font sizes could be extracted."
-      ],
-      "suggestions": [],
-      "extracted_text": "Read the following sentences\n1. I take  lessons in English language skills.\n     2.  I took lessons in English language skills last year.\n3.  I shall take lessons in English language skills next month."
+      "extracted_text": ""
     },
     {
       "slide_number": 3,
-      "title": "Take refers to the present, took refers to the past  and shall take refers to the future.",
-      "word_count": 31,
-      "character_count": 164,
-      "sentence_count": 2,
-      "average_words_per_sentence": 15.5,
-      "image_count": 0,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 2,
+      "text_box_count": 0,
       "other_shape_count": 0,
       "font_sizes_pt": [],
       "minimum_font_size_pt": null,
       "maximum_font_size_pt": null,
-      "basic_structure_score": 100,
+      "basic_structure_score": 83,
       "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
         "No explicit font sizes could be extracted."
       ],
-      "suggestions": [],
-      "extracted_text": "Take refers to the present, took refers to the past  and shall take refers to the future.\nVerb may refer to any of the following:\nPresent time\nPast time\nFuture time"
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
     },
     {
       "slide_number": 4,
-      "title": "Types of Tenses",
-      "word_count": 15,
-      "character_count": 89,
-      "sentence_count": 1,
-      "average_words_per_sentence": 15.0,
-      "image_count": 0,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 2,
+      "text_box_count": 0,
       "other_shape_count": 0,
-      "font_sizes_pt": [
-        28.0,
-        28.0,
-        28.0,
-        28.0,
-        28.0
-      ],
-      "minimum_font_size_pt": 28.0,
-      "maximum_font_size_pt": 28.0,
-      "basic_structure_score": 100,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
       "findings": [
-        "No issues detected by the basic automated checks."
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
       ],
-      "suggestions": [],
-      "extracted_text": "Types of Tenses\nThere are three types of Tenses:\n\nPresent Tense\nPast Tense\nFuture Tense\n."
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
     },
     {
       "slide_number": 5,
-      "title": "Each tense has various forms and can be further categorized into simple, continuous, perfect, and perfect continuous tenses. The choice of tenses depe",
-      "word_count": 49,
-      "character_count": 305,
-      "sentence_count": 3,
-      "average_words_per_sentence": 16.33,
-      "image_count": 0,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 2,
+      "text_box_count": 0,
       "other_shape_count": 0,
-      "font_sizes_pt": [
-        24.0,
-        24.0,
-        24.0
-      ],
-      "minimum_font_size_pt": 24.0,
-      "maximum_font_size_pt": 24.0,
-      "basic_structure_score": 100,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
       "findings": [
-        "No issues detected by the basic automated checks."
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
       ],
-      "suggestions": [],
-      "extracted_text": "Each tense has various forms and can be further categorized into simple, continuous, perfect, and perfect continuous tenses. The choice of tenses depends on the context, the intended meaning, and the relationship between the action and the time being referred to.\nThere are 12 tenses which are as follows:"
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
     },
     {
       "slide_number": 6,
-      "title": "Present tense",
-      "word_count": 14,
-      "character_count": 110,
-      "sentence_count": 1,
-      "average_words_per_sentence": 14.0,
-      "image_count": 0,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 2,
+      "text_box_count": 0,
       "other_shape_count": 0,
-      "font_sizes_pt": [
-        44.0,
-        24.0,
-        24.0,
-        24.0,
-        24.0
-      ],
-      "minimum_font_size_pt": 24.0,
-      "maximum_font_size_pt": 44.0,
-      "basic_structure_score": 100,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
       "findings": [
-        "No issues detected by the basic automated checks."
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
       ],
-      "suggestions": [],
-      "extracted_text": "Present tense\nSimple Present \nPresent  continuous tense\nPresent perfect tense\nPresent perfect continuous tense"
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
     },
     {
       "slide_number": 7,
-      "title": "Past Tense",
-      "word_count": 15,
-      "character_count": 101,
-      "sentence_count": 1,
-      "average_words_per_sentence": 15.0,
-      "image_count": 0,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 2,
+      "text_box_count": 0,
       "other_shape_count": 0,
-      "font_sizes_pt": [
-        24.0,
-        24.0,
-        24.0,
-        24.0
-      ],
-      "minimum_font_size_pt": 24.0,
-      "maximum_font_size_pt": 24.0,
-      "basic_structure_score": 100,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
       "findings": [
-        "No issues detected by the basic automated checks."
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
       ],
-      "suggestions": [],
-      "extracted_text": "Past Tense\nSimple past tense \nPast continuous tense \nPast perfect tense\nPast perfect continuous tense"
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
     },
     {
       "slide_number": 8,
-      "title": "Future Tense",
-      "word_count": 15,
-      "character_count": 110,
-      "sentence_count": 1,
-      "average_words_per_sentence": 15.0,
-      "image_count": 0,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
       "chart_count": 0,
       "table_count": 0,
-      "text_box_count": 2,
+      "text_box_count": 0,
       "other_shape_count": 0,
-      "font_sizes_pt": [
-        24.0,
-        24.0,
-        24.0,
-        24.0,
-        24.0,
-        24.0
-      ],
-      "minimum_font_size_pt": 24.0,
-      "maximum_font_size_pt": 24.0,
-      "basic_structure_score": 100,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
       "findings": [
-        "No issues detected by the basic automated checks."
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
       ],
-      "suggestions": [],
-      "extracted_text": "Future Tense\nSimple Future Tense\nFuture Continuous Tense\nFuture Perfect Tense\nFuture Perfect  Continuous Tense"
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
     },
     {
       "slide_number": 9,
@@ -252,24 +271,368 @@
         "Check image quality, relevance, alignment, and attribution."
       ],
       "extracted_text": ""
+    },
+    {
+      "slide_number": 10,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 11,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 12,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 13,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 14,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 15,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 16,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 17,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 18,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 19,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 20,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 21,
+      "title": "(No title detected)",
+      "word_count": 0,
+      "character_count": 0,
+      "sentence_count": 0,
+      "average_words_per_sentence": 0,
+      "image_count": 1,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 0,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 83,
+      "findings": [
+        "No detectable slide title.",
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Add a clear, descriptive slide title.",
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional.",
+        "Check image quality, relevance, alignment, and attribution."
+      ],
+      "extracted_text": ""
+    },
+    {
+      "slide_number": 22,
+      "title": "Thank you!",
+      "word_count": 2,
+      "character_count": 10,
+      "sentence_count": 1,
+      "average_words_per_sentence": 2.0,
+      "image_count": 0,
+      "chart_count": 0,
+      "table_count": 0,
+      "text_box_count": 1,
+      "other_shape_count": 0,
+      "font_sizes_pt": [],
+      "minimum_font_size_pt": null,
+      "maximum_font_size_pt": null,
+      "basic_structure_score": 95,
+      "findings": [
+        "Very little extractable text.",
+        "No explicit font sizes could be extracted."
+      ],
+      "suggestions": [
+        "Check whether the slide communicates its purpose. A visual-only slide may be intentional."
+      ],
+      "extracted_text": "Thank you!"
     }
   ],
-  "repeated_four_word_phrases": [
-    {
-      "phrase": "lessons in english language",
-      "count": 3
-    },
-    {
-      "phrase": "in english language skills",
-      "count": 3
-    },
-    {
-      "phrase": "take lessons in english",
-      "count": 2
-    },
-    {
-      "phrase": "take refers to the",
-      "count": 2
-    }
-  ]
+  "repeated_four_word_phrases": []
 }

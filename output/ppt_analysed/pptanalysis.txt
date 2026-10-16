@@ -1,11 +1,11 @@
 ======================================================================
                  POWERPOINT ANALYSIS REPORT
 ======================================================================
-File name: Module 4- Tenses [Recovered].pptx
-Total slides: 9
-Total extracted words: 173
-Average words per slide: 19.22
-Average basic structure score: 97.6/100
+File name: SCIENTIFIC FOUNDATION OF HEALTH.pptx
+Total slides: 22
+Total extracted words: 19
+Average words per slide: 0.86
+Average basic structure score: 84.3/100
 
 SCORING EXPLANATION
 ----------------------------------------------------------------------
@@ -13,92 +13,119 @@ Rule-based heuristic based on detectable titles, text density, explicitly sized 
 
 OVERALL FINDINGS
 ----------------------------------------------------------------------
-- 1 slide(s) have no detectable title.
-- 2 slide(s) have fewer than 5 words.
+- 20 slide(s) have no detectable title.
+- 21 slide(s) have fewer than 5 words.
 
 SLIDE-BY-SLIDE ANALYSIS
 ======================================================================
 
-SLIDE 1: Tenses
+SLIDE 1: SCIENTIFIC FOUNDATION OF HEALTH
 ----------------------------------------------------------------------
-Basic structure score: 95/100
+Basic structure score: 100/100
 
 FINDINGS:
+- No issues detected by the basic automated checks.
+
+RECOMMENDATIONS:
+No specific recommendations.
+
+SLIDE 2: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
 - Very little extractable text.
 - No explicit font sizes could be extracted.
 
 RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
 - Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
 
-SLIDE 2: Read the following sentences
+SLIDE 3: (No title detected)
 ----------------------------------------------------------------------
-Basic structure score: 100/100
+Basic structure score: 83/100
 
 FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
 - No explicit font sizes could be extracted.
 
 RECOMMENDATIONS:
-No specific recommendations.
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
 
-SLIDE 3: Take refers to the present, took refers to the past  and shall take refers to the future.
+SLIDE 4: (No title detected)
 ----------------------------------------------------------------------
-Basic structure score: 100/100
+Basic structure score: 83/100
 
 FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
 - No explicit font sizes could be extracted.
 
 RECOMMENDATIONS:
-No specific recommendations.
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
 
-SLIDE 4: Types of Tenses
+SLIDE 5: (No title detected)
 ----------------------------------------------------------------------
-Basic structure score: 100/100
+Basic structure score: 83/100
 
 FINDINGS:
-- No issues detected by the basic automated checks.
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
 
 RECOMMENDATIONS:
-No specific recommendations.
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
 
-SLIDE 5: Each tense has various forms and can be further categorized into simple, continuous, perfect, and perfect continuous tenses. The choice of tenses depe
+SLIDE 6: (No title detected)
 ----------------------------------------------------------------------
-Basic structure score: 100/100
+Basic structure score: 83/100
 
 FINDINGS:
-- No issues detected by the basic automated checks.
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
 
 RECOMMENDATIONS:
-No specific recommendations.
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
 
-SLIDE 6: Present tense
+SLIDE 7: (No title detected)
 ----------------------------------------------------------------------
-Basic structure score: 100/100
+Basic structure score: 83/100
 
 FINDINGS:
-- No issues detected by the basic automated checks.
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
 
 RECOMMENDATIONS:
-No specific recommendations.
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
 
-SLIDE 7: Past Tense
+SLIDE 8: (No title detected)
 ----------------------------------------------------------------------
-Basic structure score: 100/100
+Basic structure score: 83/100
 
 FINDINGS:
-- No issues detected by the basic automated checks.
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
 
 RECOMMENDATIONS:
-No specific recommendations.
-
-SLIDE 8: Future Tense
-----------------------------------------------------------------------
-Basic structure score: 100/100
-
-FINDINGS:
-- No issues detected by the basic automated checks.
-
-RECOMMENDATIONS:
-No specific recommendations.
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
 
 SLIDE 9: (No title detected)
 ----------------------------------------------------------------------
@@ -114,12 +141,188 @@ RECOMMENDATIONS:
 - Check whether the slide communicates its purpose. A visual-only slide may be intentional.
 - Check image quality, relevance, alignment, and attribution.
 
+SLIDE 10: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 11: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 12: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 13: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 14: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 15: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 16: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 17: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 18: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 19: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 20: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 21: (No title detected)
+----------------------------------------------------------------------
+Basic structure score: 83/100
+
+FINDINGS:
+- No detectable slide title.
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Add a clear, descriptive slide title.
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+- Check image quality, relevance, alignment, and attribution.
+
+SLIDE 22: Thank you!
+----------------------------------------------------------------------
+Basic structure score: 95/100
+
+FINDINGS:
+- Very little extractable text.
+- No explicit font sizes could be extracted.
+
+RECOMMENDATIONS:
+- Check whether the slide communicates its purpose. A visual-only slide may be intentional.
+
 REPEATED FOUR-WORD PHRASES
 ======================================================================
-- 'lessons in english language': 3 occurrences
-- 'in english language skills': 3 occurrences
-- 'take lessons in english': 2 occurrences
-- 'take refers to the': 2 occurrences
+No repeated four-word phrases detected.
 
 ======================================================================
 END OF REPORT
